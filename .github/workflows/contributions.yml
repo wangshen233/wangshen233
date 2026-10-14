@@ -1,0 +1,41 @@
+name: Update contribution animation
+
+on:
+  schedule:
+    - cron: "17 0 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/contributions.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: contribution-animation
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: Platane/snk@d8f6715049803e982ee5ff501b6b9b7d5deeb09b # v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            assets/contributions-light.svg?color_snake=#d83b46&color_dots=#edf0f3,#f6d5d8,#eea2a9,#e56b77,#b92d3c
+            assets/contributions-dark.svg?palette=github-dark&color_snake=#f17682&color_dots=#20242b,#50303a,#803c49,#b84b5e,#ef7a88
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish updated artwork
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/contributions-light.svg assets/contributions-dark.svg
+          if ! git diff --cached --quiet; then
+            git commit -m 'Update contribution animation'
+            git push origin HEAD:main
+          fi
