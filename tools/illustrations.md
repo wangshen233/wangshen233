@@ -2,7 +2,7 @@
 
 Created on 2026-10-15 with the built-in image generation tool. All five final assets are stored in `assets/`. The original cover remains available as `chihiro-japanese-v2.png`.
 
-The current profile uses a text-free three-part layout: the full-width sea-train cover, a centered contribution animation at 560 pixels wide, and a compact centered Star History thumbnail at 360 pixels wide. GitHub's image max-width keeps both within narrow screens. The thumbnail links to the full interactive chart. The four project illustrations below are archived assets and are no longer displayed in the README. The cover links to all repositories and has accessible alternative text and a hover title. Star History retains its project legend and axes. It uses the official live SVG endpoint with light and dark variants. All four public project repositories are included; the profile repository is excluded.
+The current profile is a complete workbench layout: the original text-free sea-train cover, a short identity and focus area, navigation, four native text project cards, and a collapsed Activity section. Project titles, descriptions, and technology tags are editable README content. The four project illustrations below are archived assets and are no longer displayed. Activity contains the contribution animation at 560 pixels wide and a Star History chart at 360 pixels wide, with light and dark variants. It is collapsed by default so statistics do not dominate the page. The chart links to the full interactive view and includes all four public projects. The footer links to all repositories and project issues. No custom CSS or rasterized body text is required.
 
 ## Cover edit prompt
 
