@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/chihiro-sea-train.svg" width="100%" alt="千尋 · SVG 海上列车：转动车轮、联动连杆、升起的蒸汽，以及坐在车厢窗口里的我的头像" />
+  <img src="./assets/chihiro-japanese-v2.png" width="100%" alt="千尋 · 好奇心の、その先へ。海上列车、夕阳、纸鹤与我的头像人物" />
 </p>
 
 <p align="center">
