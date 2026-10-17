@@ -10,12 +10,14 @@ import os
 import re
 import urllib.error
 import urllib.request
-from datetime import date
+from datetime import datetime, timedelta, timezone
 
 from build_fun import ASSETS, build_tag
 
 LOGIN = "wangshen233"
 TAG = ASSETS / "journey-tag.svg"
+# The tag shows the owner's local day (UTC+8), not the runner's UTC day.
+HOME = timezone(timedelta(hours=8))
 
 
 def api(path, token):
@@ -54,7 +56,7 @@ def collect(token):
         "followers": user.get("followers", 0),
         "stars": sum(repo.get("stargazers_count", 0) for repo in repos),
         "since": created[:7].replace("-", ".") or "2022.09",
-        "updated": date.today().isoformat(),
+        "updated": datetime.now(HOME).date().isoformat(),
     }
 
 
