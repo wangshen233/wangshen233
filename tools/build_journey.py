@@ -1,9 +1,16 @@
-"""Build self-contained animated SVG artwork for the sea-station profile."""
+"""Build self-contained animated SVG artwork for the sea-station profile.
+
+Runs the base artwork plus the playful extras (departure board, station-master
+cat, project stamps) from ``build_fun``. The live baggage tag has its own
+entry point, ``build_tag.py``.
+"""
 
 import base64
 from pathlib import Path
 
 from PIL import Image
+
+from build_fun import build_board, build_cat, build_stamps
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -115,6 +122,14 @@ def build_readme():
     repos = "wangshen233/upi-zero-link,wangshen233/turb-gpt-free-register-oss-20260928,wangshen233/codex-oauth-helper,wangshen233/wangshen233.github.io"
     chart = "https://api.star-history.com/svg?repos=" + repos + "&amp;type=Date"
     chart_link = "https://www.star-history.com/#" + repos.replace(",", "&amp;") + "&amp;Date"
+    stamps = "".join(f'''
+  <a href="{url}" title="{title}"><img src="./assets/stamp-{slug}.svg" width="104" alt="{title} 纪念印章" /></a>'''
+                      for slug, url, title in (
+                          ("upi", "https://github.com/wangshen233/upi-zero-link", "UPI Zero Link"),
+                          ("turb", "https://github.com/wangshen233/turb-gpt-free-register-oss-20260928", "Turb Register"),
+                          ("oauth", "https://github.com/wangshen233/codex-oauth-helper", "Codex OAuth Helper"),
+                          ("web", "https://github.com/wangshen233/wangshen233.github.io", "Personal Site"),
+                      ))
     readme = f'''<p align="center">
   <img src="./assets/journey-cover.svg" width="100%" alt="无字海上列车：车厢轻晃、波动的海面、飞行纸鹤与夕阳微光" />
 </p>
@@ -146,12 +161,55 @@ def build_readme():
 </details>
 
 <p align="center">
+  <img src="./assets/journey-board.svg" width="100%" alt="站台广播：233 次开往下一个坑正在检票，0 次开往早睡无限期晚点，404 次开往灵感车次取消，Git 号开往线上准点发车" />
+</p>
+
+<details>
+  <summary>🐈 值班站长室（点开有猫）</summary>
+  <br />
+  <p align="center">
+    <img src="./assets/journey-cat.svg" width="380" alt="值班站长三花戴着红帽子，尾巴轻晃，说：本站不查票，只查 bug。" />
+  </p>
+</details>
+
+<p align="center">
+  <sub>盖章打卡 · 每一站都算数</sub>
+</p>
+
+<p align="center">{stamps}
+</p>
+
+<p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/wangshen233/wangshen233/main/assets/contributions-dark.svg" />
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/wangshen233/wangshen233/main/assets/contributions-light.svg" />
     <img src="./assets/contributions-light.svg" width="560" alt="每天留下的脚印：公开贡献记录的轨迹动画" />
   </picture>
 </p>
+
+<details>
+  <summary>🧳 行李牌 &amp; 车票背面</summary>
+  <br />
+  <p align="center">
+    <img src="./assets/journey-tag.svg" width="100%" alt="行李牌：旅客日天，座位 233，2022 年 9 月出发；仓库、同行与星星的数字每天由 GitHub Actions 更新" />
+  </p>
+
+  **乘客须知**
+
+  - 车票长期有效，从 2022 年 9 月开始，没有终点站。
+  - 随身行李不限重，但请勿携带没解决的 bug 上车。
+  - 车厢内欢迎大声讨论灵感，禁止在凌晨三点之后发版。
+  - 座位 233 常年空着，路过就坐下。
+
+  **今天想坐哪趟车？**
+
+  - 想看手艺 → [四个项目都停在这里](https://github.com/wangshen233?tab=repositories)
+  - 想随便逛逛 → [去个人小站坐一会儿](https://wangshen233.github.io)
+  - 想留句话 → [在站台留言板写一行](https://github.com/wangshen233/upi-zero-link/issues)
+  - 想抄作业 → [fork 一节车厢带走](https://github.com/wangshen233?tab=repositories)
+
+  <sub>行李牌上的数字由 Actions 每天更新一次，晚点属于正常现象。</sub>
+</details>
 
 <details>
   <summary>✦ 沿途收到的星星 · Star History</summary>
@@ -167,7 +225,27 @@ def build_readme():
   </p>
 </details>
 
-<p align="center"><sub><a href="https://github.com/wangshen233?tab=repositories">更多岔路 ↗</a>　 / 　<a href="https://github.com/wangshen233/upi-zero-link/issues">站台留言 ↗</a></sub></p>
+<details>
+  <summary>🕳️ 别点这里</summary>
+  <br />
+
+  你点了。本站就一个彩蛋，一趟没有名字的夜车：
+
+  ```
+        ______
+       | 233 |
+  _____|_____|___________________
+ |                               |
+ |   下一个坑      ○ ○ ○ ○ ○     |
+ |_______________________________|
+    ~    ~    ~    ~    ~    ~
+  ```
+
+  今日宜：写一行代码就睡觉。今日忌：在凌晨三点开新坑。
+
+</details>
+
+<p align="center"><sub><a href="https://github.com/wangshen233?tab=repositories">更多岔路 ↗</a>　 / 　<a href="https://github.com/wangshen233/upi-zero-link/issues">站台留言 ↗</a>　 / 　本站全天候供应咖啡</sub></p>
 '''
     (ROOT / "README.md").write_text(readme, encoding="utf-8")
 
@@ -175,6 +253,9 @@ def build_readme():
 if __name__ == "__main__":
     build_cover()
     build_station()
+    build_board()
+    build_cat()
+    build_stamps()
     build_readme()
-    for name in ("journey-cover.svg", "journey-station.svg"):
+    for name in ("journey-cover.svg", "journey-station.svg", "journey-board.svg", "journey-cat.svg"):
         print(name, (ROOT / "assets" / name).stat().st_size)

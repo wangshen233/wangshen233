@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="268" viewBox="0 0 880 268" role="img" aria-labelledby="title desc">
+  <title id="title">站台广播 · 出发时刻表</title>
+  <desc id="desc">A paper departure board. Four services flip between playful statuses and an announcement ticker scrolls along the bottom. 233 次开往下一个坑，0 次开往早睡，404 次开往灵感，Git 号开往线上。</desc>
+  <defs>
+    <linearGradient id="paper" x2="1" y2="1"><stop stop-color="#faf4e7"/><stop offset="1" stop-color="#ede0c9"/></linearGradient>
+      <pattern id="ripple" width="160" height="40" patternUnits="userSpaceOnUse"><path d="M-40 20Q0 2 40 20T120 20T200 20" fill="none" stroke="#7e9a98" stroke-width="1" opacity=".13"/></pattern>
+      
+    <clipPath id="board"><path d="M20 0H860Q880 0 880 20V84Q863 84 863 100Q863 116 880 116V248Q880 268 860 268H20Q0 268 0 248V116Q17 116 17 100Q17 84 0 84V20Q0 0 20 0Z"/></clipPath>
+    <clipPath id="tickerClip"><rect x="30" y="228" width="850" height="40"/></clipPath>
+  </defs>
+  <g clip-path="url(#board)">
+    <rect width="880" height="268" fill="url(#paper)"/>
+    <g><rect x="-180" width="1320" height="268" fill="url(#ripple)"/>
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="160 0" dur="22s" repeatCount="indefinite"/></g>
+    <text x="36" y="50" font-family="'STKaiti','KaiTi','Microsoft YaHei',serif" font-size="23" fill="#274d57" letter-spacing="2">站台广播</text>
+    <text x="36" y="70" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="9" fill="#7c7567" letter-spacing="3">DEPARTURES · 心情时刻表</text>
+    <circle cx="618" cy="44" r="4" fill="#b75640">
+      <animate attributeName="opacity" values="1;.15;1" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+    <text x="632" y="48" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="10" fill="#7c7567" letter-spacing="1">值班员在线</text>
+    <text x="844" y="52" text-anchor="end" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="22" fill="#274d57">23:33</text>
+    <text x="844" y="70" text-anchor="end" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="8" fill="#7c7567" letter-spacing="2">STATION 233</text>
+    <path d="M36 84H844" stroke="#7c7567" stroke-width="1" stroke-dasharray="3 5" opacity=".6"/>
+    <text x="36" y="102" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="8.5" fill="#7c7567" letter-spacing="2.4">车次</text>
+    <text x="132" y="102" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="8.5" fill="#7c7567" letter-spacing="2.4">开往</text>
+    <text x="452" y="102" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="8.5" fill="#7c7567" letter-spacing="2.4">站台</text>
+    <text x="556" y="102" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="8.5" fill="#7c7567" letter-spacing="2.4">状态</text>
+    <path d="M120 92V220" stroke="#7c7567" stroke-width="1" stroke-dasharray="2 6" opacity=".35"/><path d="M440 92V220" stroke="#7c7567" stroke-width="1" stroke-dasharray="2 6" opacity=".35"/><path d="M544 92V220" stroke="#7c7567" stroke-width="1" stroke-dasharray="2 6" opacity=".35"/>
+    <g>
+          <text x="36" y="131" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="14" fill="#274d57" letter-spacing="1">233 次</text>
+          <text x="132" y="131" font-family="'STKaiti','KaiTi','Microsoft YaHei',serif" font-size="15" fill="#274d57">下一个坑</text>
+          <text x="452" y="131" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="12" fill="#7c7567">2 站台</text>
+          <text x="556" y="131" text-anchor="start" font-family="'STKaiti','KaiTi','Microsoft YaHei',serif" font-size="14" fill="#b75640" letter-spacing="1" opacity="0">正在检票<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.0000;0.0120;0.3213;0.3333;1" dur="8.4s" begin="0.0s" repeatCount="indefinite"/></text><text x="556" y="131" text-anchor="start" font-family="'STKaiti','KaiTi','Microsoft YaHei',serif" font-size="14" fill="#b75640" letter-spacing="1" opacity="0">已准点发车<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.3333;0.3453;0.6547;0.6667;1" dur="8.4s" begin="0.0s" repeatCount="indefinite"/></text><text x="556" y="131" text-anchor="start" font-family="'STKaiti','KaiTi','Microsoft YaHei',serif" font-size="14" fill="#b75640" letter-spacing="1" opacity="0">再加一节车厢<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.6667;0.6787;0.9880;1.0000;1" dur="8.4s" begin="0.0s" repeatCount="indefinite"/></text>
+        </g><g>
+          <text x="36" y="159" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="14" fill="#274d57" letter-spacing="1">0 次</text>
+          <text x="132" y="159" font-family="'STKaiti','KaiTi','Microsoft YaHei',serif" font-size="15" fill="#274d57">早睡</text>
+          <text x="452" y="159" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="12" fill="#7c7567">1 站台</text>
+          <text x="556" y="159" text-anchor="start" font-family="'STKaiti','KaiTi','Microsoft YaHei',serif" font-size="14" fill="#b75640" letter-spacing="1" opacity="0">无限期晚点<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.0000;0.0120;0.3213;0.3333;1" dur="9.700000000000001s" begin="-1.7s" repeatCount="indefinite"/></text><text x="556" y="159" text-anchor="start" font-family="'STKaiti','KaiTi','Microsoft YaHei',serif" font-size="14" fill="#b75640" letter-spacing="1" opacity="0">请不要等我<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.3333;0.3453;0.6547;0.6667;1" dur="9.700000000000001s" begin="-1.7s" repeatCount="indefinite"/></text><text x="556" y="159" text-anchor="start" font-family="'STKaiti','KaiTi','Microsoft YaHei',serif" font-size="14" fill="#b75640" letter-spacing="1" opacity="0">明日再说吧<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.6667;0.6787;0.9880;1.0000;1" dur="9.700000000000001s" begin="-1.7s" repeatCount="indefinite"/></text>
+        </g><g>
+          <text x="36" y="187" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="14" fill="#274d57" letter-spacing="1">404 次</text>
+          <text x="132" y="187" font-family="'STKaiti','KaiTi','Microsoft YaHei',serif" font-size="15" fill="#274d57">灵感</text>
+          <text x="452" y="187" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="12" fill="#7c7567">3 站台</text>
+          <text x="556" y="187" text-anchor="start" font-family="'STKaiti','KaiTi','Microsoft YaHei',serif" font-size="14" fill="#b75640" letter-spacing="1" opacity="0">车次取消<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.0000;0.0120;0.3213;0.3333;1" dur="11.0s" begin="-3.4s" repeatCount="indefinite"/></text><text x="556" y="187" text-anchor="start" font-family="'STKaiti','KaiTi','Microsoft YaHei',serif" font-size="14" fill="#b75640" letter-spacing="1" opacity="0">正在抢修<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.3333;0.3453;0.6547;0.6667;1" dur="11.0s" begin="-3.4s" repeatCount="indefinite"/></text><text x="556" y="187" text-anchor="start" font-family="'STKaiti','KaiTi','Microsoft YaHei',serif" font-size="14" fill="#b75640" letter-spacing="1" opacity="0">请手动换乘<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.6667;0.6787;0.9880;1.0000;1" dur="11.0s" begin="-3.4s" repeatCount="indefinite"/></text>
+        </g><g>
+          <text x="36" y="215" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="14" fill="#274d57" letter-spacing="1">Git 号</text>
+          <text x="132" y="215" font-family="'STKaiti','KaiTi','Microsoft YaHei',serif" font-size="15" fill="#274d57">线上</text>
+          <text x="452" y="215" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="12" fill="#7c7567">4 站台</text>
+          <text x="556" y="215" text-anchor="start" font-family="'STKaiti','KaiTi','Microsoft YaHei',serif" font-size="14" fill="#b75640" letter-spacing="1" opacity="0">准点发车<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.0000;0.0120;0.3213;0.3333;1" dur="12.3s" begin="-5.1s" repeatCount="indefinite"/></text><text x="556" y="215" text-anchor="start" font-family="'STKaiti','KaiTi','Microsoft YaHei',serif" font-size="14" fill="#b75640" letter-spacing="1" opacity="0">已推送成功<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.3333;0.3453;0.6547;0.6667;1" dur="12.3s" begin="-5.1s" repeatCount="indefinite"/></text><text x="556" y="215" text-anchor="start" font-family="'STKaiti','KaiTi','Microsoft YaHei',serif" font-size="14" fill="#b75640" letter-spacing="1" opacity="0">无冲突合并<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.6667;0.6787;0.9880;1.0000;1" dur="12.3s" begin="-5.1s" repeatCount="indefinite"/></text>
+        </g>
+    <rect y="228" width="880" height="40" fill="#274d57"/>
+    <path d="M16 248L26 243V253Z" fill="#f6d69b"/>
+    <g clip-path="url(#tickerClip)">
+      <g font-family="'STKaiti','KaiTi','Microsoft YaHei',serif" font-size="12" fill="#f7efdf" letter-spacing="1">
+        <text x="30" y="253" opacity=".92">欢迎乘坐 233 次列车 ・ 前方到站：下一站，开个新坑 ・ 请把灵感随身带上车 ・ 本站全天候供应咖啡与 bug ・ 末班车 23:33 ・ 欢迎乘坐 233 次列车 ・ 前方到站：下一站，开个新坑 ・ 请把灵感随身带上车 ・ 本站全天候供应咖啡与 bug ・ 末班车 23:33 ・ </text>
+        <animateTransform attributeName="transform" type="translate" from="0 0" to="-720 0" dur="26s" repeatCount="indefinite"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -29,12 +29,59 @@
 </details>
 
 <p align="center">
+  <img src="./assets/journey-board.svg" width="100%" alt="站台广播：233 次开往下一个坑正在检票，0 次开往早睡无限期晚点，404 次开往灵感车次取消，Git 号开往线上准点发车" />
+</p>
+
+<details>
+  <summary>🐈 值班站长室（点开有猫）</summary>
+  <br />
+  <p align="center">
+    <img src="./assets/journey-cat.svg" width="380" alt="值班站长三花戴着红帽子，尾巴轻晃，说：本站不查票，只查 bug。" />
+  </p>
+</details>
+
+<p align="center">
+  <sub>盖章打卡 · 每一站都算数</sub>
+</p>
+
+<p align="center">
+  <a href="https://github.com/wangshen233/upi-zero-link" title="UPI Zero Link"><img src="./assets/stamp-upi.svg" width="104" alt="UPI Zero Link 纪念印章" /></a>
+  <a href="https://github.com/wangshen233/turb-gpt-free-register-oss-20260928" title="Turb Register"><img src="./assets/stamp-turb.svg" width="104" alt="Turb Register 纪念印章" /></a>
+  <a href="https://github.com/wangshen233/codex-oauth-helper" title="Codex OAuth Helper"><img src="./assets/stamp-oauth.svg" width="104" alt="Codex OAuth Helper 纪念印章" /></a>
+  <a href="https://github.com/wangshen233/wangshen233.github.io" title="Personal Site"><img src="./assets/stamp-web.svg" width="104" alt="Personal Site 纪念印章" /></a>
+</p>
+
+<p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/wangshen233/wangshen233/main/assets/contributions-dark.svg" />
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/wangshen233/wangshen233/main/assets/contributions-light.svg" />
     <img src="./assets/contributions-light.svg" width="560" alt="每天留下的脚印：公开贡献记录的轨迹动画" />
   </picture>
 </p>
+
+<details>
+  <summary>🧳 行李牌 &amp; 车票背面</summary>
+  <br />
+  <p align="center">
+    <img src="./assets/journey-tag.svg" width="100%" alt="行李牌：旅客日天，座位 233，2022 年 9 月出发；仓库、同行与星星的数字每天由 GitHub Actions 更新" />
+  </p>
+
+  **乘客须知**
+
+  - 车票长期有效，从 2022 年 9 月开始，没有终点站。
+  - 随身行李不限重，但请勿携带没解决的 bug 上车。
+  - 车厢内欢迎大声讨论灵感，禁止在凌晨三点之后发版。
+  - 座位 233 常年空着，路过就坐下。
+
+  **今天想坐哪趟车？**
+
+  - 想看手艺 → [四个项目都停在这里](https://github.com/wangshen233?tab=repositories)
+  - 想随便逛逛 → [去个人小站坐一会儿](https://wangshen233.github.io)
+  - 想留句话 → [在站台留言板写一行](https://github.com/wangshen233/upi-zero-link/issues)
+  - 想抄作业 → [fork 一节车厢带走](https://github.com/wangshen233?tab=repositories)
+
+  <sub>行李牌上的数字由 Actions 每天更新一次，晚点属于正常现象。</sub>
+</details>
 
 <details>
   <summary>✦ 沿途收到的星星 · Star History</summary>
@@ -50,4 +97,24 @@
   </p>
 </details>
 
-<p align="center"><sub><a href="https://github.com/wangshen233?tab=repositories">更多岔路 ↗</a>　 / 　<a href="https://github.com/wangshen233/upi-zero-link/issues">站台留言 ↗</a></sub></p>
+<details>
+  <summary>🕳️ 别点这里</summary>
+  <br />
+
+  你点了。本站就一个彩蛋，一趟没有名字的夜车：
+
+  ```
+        ______
+       | 233 |
+  _____|_____|___________________
+ |                               |
+ |   下一个坑      ○ ○ ○ ○ ○     |
+ |_______________________________|
+    ~    ~    ~    ~    ~    ~
+  ```
+
+  今日宜：写一行代码就睡觉。今日忌：在凌晨三点开新坑。
+
+</details>
+
+<p align="center"><sub><a href="https://github.com/wangshen233?tab=repositories">更多岔路 ↗</a>　 / 　<a href="https://github.com/wangshen233/upi-zero-link/issues">站台留言 ↗</a>　 / 　本站全天候供应咖啡</sub></p>

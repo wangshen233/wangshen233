@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="164" viewBox="0 0 880 164" role="img" aria-labelledby="title desc">
+  <title id="title">行李牌 · baggage tag</title>
+  <desc id="desc">A paper luggage tag: passenger 日天, seat 233, departed 2022.09, with live counts for repositories, followers and stars, refreshed every day.</desc>
+  <defs>
+    <linearGradient id="paper" x2="1" y2="1"><stop stop-color="#faf4e7"/><stop offset="1" stop-color="#ede0c9"/></linearGradient>
+      <pattern id="ripple" width="160" height="40" patternUnits="userSpaceOnUse"><path d="M-40 20Q0 2 40 20T120 20T200 20" fill="none" stroke="#7e9a98" stroke-width="1" opacity=".13"/></pattern>
+      
+    <clipPath id="tag"><rect width="880" height="164" rx="22"/></clipPath>
+  </defs>
+  <g clip-path="url(#tag)">
+    <rect width="880" height="164" fill="url(#paper)"/>
+    <g><rect x="-180" width="1320" height="164" fill="url(#ripple)"/>
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="160 0" dur="24s" repeatCount="indefinite"/></g>
+    <circle cx="46" cy="75" r="13" fill="none" stroke="#274d57" stroke-width="2.6"/>
+    <circle cx="46" cy="75" r="20" fill="none" stroke="#7c7567" stroke-width="1" stroke-dasharray="2 4" opacity=".45"/>
+    <path d="M40 66q6 -4 12 0" fill="none" stroke="#7c7567" stroke-width="1.2" opacity=".6"/>
+    <path d="M112 20V140" stroke="#7c7567" stroke-width="1" stroke-dasharray="3 6" opacity=".55"/>
+    <text x="134" y="56" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="21" fill="#274d57">No. 233</text>
+    <text x="134" y="76" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="8" fill="#7c7567" letter-spacing="3">BAGGAGE TAG</text>
+    <text x="134" y="98" font-family="Georgia,'Times New Roman',serif" font-size="12" fill="#274d57">wangshen233 · 日天</text>
+    <g transform="rotate(-8 812 76)">
+      <rect x="762" y="62" width="100" height="28" rx="4" fill="none" stroke="#b75640" stroke-width="1.8" opacity=".9"/>
+      <text x="812" y="81" text-anchor="middle" font-family="'STKaiti','KaiTi','Microsoft YaHei',serif" font-size="13" fill="#b75640" opacity=".9">易碎：随缘更新</text>
+    </g>
+    <g>
+        <text x="320" y="54" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="8" fill="#7c7567" letter-spacing="1.6">REPOS 仓库 · 件</text>
+        <text x="320" y="84" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="24" fill="#274d57">5</text>
+      </g><g>
+        <text x="440" y="54" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="8" fill="#7c7567" letter-spacing="1.6">FOLLOWERS 同行 · 人</text>
+        <text x="440" y="84" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="24" fill="#274d57">20</text>
+      </g><g>
+        <text x="560" y="54" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="8" fill="#7c7567" letter-spacing="1.6">STARS 星星 · 颗</text>
+        <text x="560" y="84" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="24" fill="#274d57">103</text>
+      </g><g>
+        <text x="680" y="54" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="8" fill="#7c7567" letter-spacing="1.6">SINCE 出发</text>
+        <text x="680" y="84" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="20" fill="#274d57">2022.09</text>
+      </g>
+    <g fill="#274d57" opacity=".7"><rect x="656.1" y="122" width="1.65" height="16"/><rect x="659.0" y="122" width="3.30" height="16"/><rect x="663.6" y="122" width="1.65" height="16"/><rect x="666.5" y="122" width="1.65" height="16"/><rect x="669.4" y="122" width="1.10" height="16"/><rect x="671.7" y="122" width="2.20" height="16"/><rect x="675.2" y="122" width="2.75" height="16"/><rect x="679.2" y="122" width="1.10" height="16"/><rect x="681.5" y="122" width="3.30" height="16"/><rect x="686.1" y="122" width="2.20" height="16"/><rect x="689.5" y="122" width="1.10" height="16"/><rect x="691.9" y="122" width="1.65" height="16"/><rect x="694.8" y="122" width="2.75" height="16"/><rect x="698.8" y="122" width="3.30" height="16"/><rect x="703.3" y="122" width="2.75" height="16"/><rect x="707.3" y="122" width="2.20" height="16"/><rect x="710.8" y="122" width="2.20" height="16"/><rect x="714.2" y="122" width="2.20" height="16"/><rect x="717.7" y="122" width="1.65" height="16"/><rect x="720.6" y="122" width="3.30" height="16"/><rect x="725.1" y="122" width="2.75" height="16"/><rect x="729.1" y="122" width="1.10" height="16"/><rect x="731.5" y="122" width="1.65" height="16"/><rect x="734.4" y="122" width="2.75" height="16"/><rect x="738.4" y="122" width="2.75" height="16"/><rect x="742.4" y="122" width="1.65" height="16"/><rect x="745.3" y="122" width="2.20" height="16"/><rect x="748.8" y="122" width="1.65" height="16"/><rect x="751.6" y="122" width="1.10" height="16"/><rect x="754.0" y="122" width="1.10" height="16"/><rect x="756.4" y="122" width="3.30" height="16"/><rect x="760.9" y="122" width="1.65" height="16"/><rect x="763.8" y="122" width="1.65" height="16"/><rect x="766.7" y="122" width="3.30" height="16"/></g>
+    <text x="134" y="136" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="7.5" fill="#7c7567" letter-spacing="1.4">UPDATED 2026.10.18 · 由 GitHub Actions 每日更新 · 行李请勿倒放</text>
+  </g>
+</svg>

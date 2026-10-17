@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="140" height="140" viewBox="0 0 140 140" role="img" aria-labelledby="title desc">
+  <title id="title">UPI 纪念印章</title>
+  <desc id="desc">A round rubber stamp for the UPI project, tilted slightly, with arc lettering and a grainy ink texture.</desc>
+  <defs>
+    <clipPath id="disc"><circle cx="70" cy="70" r="63"/></clipPath>
+    <path id="topArc" d="M18 70A52 52 0 0 1 122 70" fill="none"/>
+    <path id="bottomArc" d="M18 70A52 52 0 0 0 122 70" fill="none"/>
+    <filter id="grain" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="3" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 .45 0 0 0 0 .18 0 0 0 0 .12 0 0 0 .65 0"/>
+    </filter>
+  </defs>
+  <g transform="rotate(-9 70 70)" opacity=".94">
+    <circle cx="70" cy="70" r="63" fill="none" stroke="#b75640" stroke-width="3.4"/>
+    <circle cx="70" cy="70" r="56" fill="none" stroke="#b75640" stroke-width="1" opacity=".6"/>
+    <g clip-path="url(#disc)" opacity=".2"><rect width="140" height="140" filter="url(#grain)"/></g>
+    <text font-family="Georgia,'Times New Roman',serif" font-size="8.5" fill="#b75640" letter-spacing="2.2">
+      <textPath xlink:href="#topArc" href="#topArc" startOffset="50%" text-anchor="middle">WANGSHEN233 · 沿途盖章</textPath>
+    </text>
+    <text font-family="Georgia,'Times New Roman',serif" font-size="8" fill="#b75640" letter-spacing="1.6">
+      <textPath xlink:href="#bottomArc" href="#bottomArc" startOffset="50%" text-anchor="middle">ZERO LINK</textPath>
+    </text>
+    <text x="70" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="27" fill="#b75640" letter-spacing="1.5">UPI</text>
+    <path d="M40 88H100" stroke="#b75640" stroke-width="1" opacity=".55"/>
+    <text x="70" y="100" text-anchor="middle" font-family="'STKaiti','KaiTi','Microsoft YaHei',serif" font-size="9" fill="#b75640" opacity=".85">途中下車</text>
+  </g>
+</svg>
