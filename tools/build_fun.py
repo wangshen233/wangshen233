@@ -10,6 +10,7 @@ GitHub README:
 """
 
 import hashlib
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -22,6 +23,8 @@ MUTED = "#7c7567"
 ACCENT = "#b75640"
 DEEP_RED = "#8f3f31"
 GOLD = "#f6d69b"
+OCHRE = "#a2762f"
+GREEN = "#2f6b52"
 WATER = "#496b70"
 GLASS = "#fffbf2"
 MONO = "ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace"
@@ -48,16 +51,20 @@ def text_width(text, size):
 
 
 def flip(items, x, y, duration, *, size=14, family=None, fill=ACCENT, spacing=0, anchor="start", begin=0.0):
-    """A split-flap cell: each variant is visible for its own slice of the loop."""
+    """A split-flap cell: each variant is visible for its own slice of the loop.
+
+    ``items`` may be strings or ``(text, colour)`` pairs.
+    """
     family = family or CJK
     slot = duration / len(items)
     out = []
     for index, item in enumerate(items):
+        text, colour = item if isinstance(item, (tuple, list)) else (item, fill)
         start, end = index * slot / duration, (index + 1) * slot / duration
         keys = f"0;{start:.4f};{min(start + .012, end):.4f};{max(end - .012, start):.4f};{end:.4f};1"
         out.append(
             f'<text x="{x}" y="{y}" text-anchor="{anchor}" font-family="{family}" font-size="{size}" '
-            f'fill="{fill}" letter-spacing="{spacing}" opacity="0">{item}'
+            f'fill="{colour}" letter-spacing="{spacing}" opacity="0">{text}'
             f'<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="{keys}" '
             f'dur="{duration}s" begin="{begin}s" repeatCount="indefinite"/></text>'
         )
@@ -69,36 +76,52 @@ def flip(items, x, y, duration, *, size=14, family=None, fill=ACCENT, spacing=0,
 # --------------------------------------------------------------------------
 
 BOARD_ROWS = (
-    ("233 次", "下一个坑", "2 站台", ("正在检票", "已准点发车", "再加一节车厢")),
-    ("0 次", "早睡", "1 站台", ("无限期晚点", "请不要等我", "明日再说吧")),
-    ("404 次", "灵感", "3 站台", ("车次取消", "正在抢修", "请手动换乘")),
-    ("Git 号", "线上", "4 站台", ("准点发车", "已推送成功", "无冲突合并")),
+    ("233 次", "下一个坑", "2 站台",
+     (("正在检票", OCHRE), ("已准点发车", GREEN), ("再加一节车厢", ACCENT))),
+    ("0 次", "早睡", "1 站台",
+     (("无限期晚点", ACCENT), ("请不要等我", MUTED), ("明日再说吧", MUTED))),
+    ("404 次", "灵感", "3 站台",
+     (("车次取消", ACCENT), ("正在抢修", OCHRE), ("请手动换乘", OCHRE))),
+    ("Git 号", "线上", "4 站台",
+     (("准点发车", GREEN), ("已推送成功", GREEN), ("无冲突合并", GREEN))),
 )
 
 TICKER = "欢迎乘坐 233 次列车 ・ 前方到站：下一站，开个新坑 ・ 请把灵感随身带上车 ・ 本站全天候供应咖啡与 bug ・ 末班车 23:33 ・ "
+
+# Left edge and width of the four flipping columns.
+COLUMNS = ((28, 80, 36), (124, 308, 132), (444, 92, 452), (548, 300, 556))
 
 
 def build_board():
     rows = []
     for index, (car, destination, platform, statuses) in enumerate(BOARD_ROWS):
         y = 131 + index * 28
+        panels = "".join(
+            f'<rect x="{left}" y="{y - 17}" width="{width}" height="24" rx="4" fill="url(#flap)" '
+            f'stroke="#cbbfa6" stroke-width=".7" opacity=".85"/>'
+            f'<path d="M{left + 3} {y - 5}H{left + width - 3}" stroke="{MUTED}" stroke-width=".8" opacity=".22"/>'
+            for left, width, _ in COLUMNS
+        )
         rows.append(f'''<g>
+          {panels}
           <text x="36" y="{y}" font-family="{MONO}" font-size="14" fill="{INK}" letter-spacing="1">{car}</text>
           <text x="132" y="{y}" font-family="{CJK}" font-size="15" fill="{INK}">{destination}</text>
           <text x="452" y="{y}" font-family="{MONO}" font-size="12" fill="{MUTED}">{platform}</text>
           {flip(statuses, 556, y, 8.4 + index * 1.3, size=14, spacing=1, begin=-index * 1.7)}
         </g>''')
 
-    dividers = "".join(
-        f'<path d="M{x} 92V220" stroke="{MUTED}" stroke-width="1" stroke-dasharray="2 6" opacity=".35"/>'
-        for x in (120, 440, 544)
-    )
     ticker_gap = text_width(TICKER, 12)
     svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="880" height="268" viewBox="0 0 880 268" role="img" aria-labelledby="title desc">
   <title id="title">站台广播 · 出发时刻表</title>
-  <desc id="desc">A paper departure board. Four services flip between playful statuses and an announcement ticker scrolls along the bottom. 233 次开往下一个坑，0 次开往早睡，404 次开往灵感，Git 号开往线上。</desc>
+  <desc id="desc">A paper departure board of flipping split-flap panels. Four services cycle through playful statuses in colour-coded ink — on time in green, delayed or cancelled in red — while an announcement ticker scrolls along the bottom.</desc>
   <defs>
     {paper_defs()}
+    <linearGradient id="flap" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f9efdc"/>
+      <stop offset=".49" stop-color="#f1e4cc"/>
+      <stop offset=".51" stop-color="#eaddc4"/>
+      <stop offset="1" stop-color="#f5ebd8"/>
+    </linearGradient>
     <clipPath id="board"><path d="M20 0H860Q880 0 880 20V84Q863 84 863 100Q863 116 880 116V248Q880 268 860 268H20Q0 268 0 248V116Q17 116 17 100Q17 84 0 84V20Q0 0 20 0Z"/></clipPath>
     <clipPath id="tickerClip"><rect x="30" y="228" width="850" height="40"/></clipPath>
   </defs>
@@ -107,18 +130,21 @@ def build_board():
     {paper_wash(880, 268)}
     <text x="36" y="50" font-family="{CJK}" font-size="23" fill="{INK}" letter-spacing="2">站台广播</text>
     <text x="36" y="70" font-family="{MONO}" font-size="9" fill="{MUTED}" letter-spacing="3">DEPARTURES · 心情时刻表</text>
-    <circle cx="618" cy="44" r="4" fill="{ACCENT}">
+    <rect x="606" y="33" width="122" height="23" rx="11.5" fill="#f4e9d6" stroke="{MUTED}" stroke-width=".7" opacity=".8"/>
+    <circle cx="621" cy="44.5" r="3.6" fill="{ACCENT}">
       <animate attributeName="opacity" values="1;.15;1" dur="1.8s" repeatCount="indefinite"/>
     </circle>
-    <text x="632" y="48" font-family="{MONO}" font-size="10" fill="{MUTED}" letter-spacing="1">值班员在线</text>
-    <text x="844" y="52" text-anchor="end" font-family="{MONO}" font-size="22" fill="{INK}">23:33</text>
+    <text x="632" y="48.5" font-family="{MONO}" font-size="9.5" fill="{MUTED}" letter-spacing="1">值班员在线</text>
+    <text x="797" y="52" text-anchor="end" font-family="{MONO}" font-size="22" fill="{INK}">23</text>
+    <text x="816" y="52" text-anchor="end" font-family="{MONO}" font-size="22" fill="{INK}">:</text>
+    <text x="844" y="52" text-anchor="end" font-family="{MONO}" font-size="22" fill="{INK}">33</text>
     <text x="844" y="70" text-anchor="end" font-family="{MONO}" font-size="8" fill="{MUTED}" letter-spacing="2">STATION 233</text>
     <path d="M36 84H844" stroke="{MUTED}" stroke-width="1" stroke-dasharray="3 5" opacity=".6"/>
     <text x="36" y="102" font-family="{MONO}" font-size="8.5" fill="{MUTED}" letter-spacing="2.4">车次</text>
     <text x="132" y="102" font-family="{MONO}" font-size="8.5" fill="{MUTED}" letter-spacing="2.4">开往</text>
     <text x="452" y="102" font-family="{MONO}" font-size="8.5" fill="{MUTED}" letter-spacing="2.4">站台</text>
     <text x="556" y="102" font-family="{MONO}" font-size="8.5" fill="{MUTED}" letter-spacing="2.4">状态</text>
-    {dividers}
+    <path d="M28 107H848" stroke="{MUTED}" stroke-width=".8" stroke-dasharray="2 6" opacity=".35"/>
     {''.join(rows)}
     <rect y="228" width="880" height="40" fill="{INK}"/>
     <path d="M16 248L26 243V253Z" fill="{GOLD}"/>
@@ -141,31 +167,57 @@ CAT_LINES = ("喵～", "车票拿好。", "别熬太晚。", "灵感放好，", 
 
 
 def build_cat():
+    cranes = []
+    for index, (x1, y1, x2, y2, dur, scale, begin) in enumerate((
+            (168, 180, 350, 168, 17, .36, -9),
+            (198, 204, 342, 196, 23, .26, -6))):
+        cranes.append(f'''<g opacity="0">
+        <use href="#crane" transform="scale({scale})"/>
+        <animateTransform attributeName="transform" type="translate" values="{x1} {y1};{x2} {y2}" dur="{dur}s" begin="{begin}s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;.85;.85;0" keyTimes="0;.15;.82;1" dur="{dur}s" begin="{begin}s" repeatCount="indefinite"/>
+      </g>''')
     svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="380" height="252" viewBox="0 0 380 252" role="img" aria-labelledby="title desc">
   <title id="title">值班站长三花</title>
-  <desc id="desc">A paper card with the station-master cat 三花 in a red cap, a waving flag and a speech bubble that cycles through five short messages.</desc>
+  <desc id="desc">A paper card with the station-master cat 三花 in a red cap, a waving flag, a swinging bell and a speech bubble that cycles through five short messages while paper cranes drift past.</desc>
   <defs>
     {paper_defs()}
+    <g id="crane" fill="#fbeecd" stroke="#b08b4a" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M0 0L-37 -35L-14 9L6 1L27 -39L14 12L6 1L0 0L-14 9L-6 18L6 1"/>
+      <path d="M0 0L-37 -35M6 1L27 -39M-14 9L6 1" fill="none" stroke-width="1.4"/>
+    </g>
     <clipPath id="card"><rect width="380" height="252" rx="20"/></clipPath>
   </defs>
   <g clip-path="url(#card)">
     <rect width="380" height="252" fill="url(#paper)"/>
     {paper_wash(380, 252, 19)}
+    {''.join(cranes)}
     <path d="M24 212H356" stroke="{MUTED}" stroke-width="1" opacity=".28"/>
     <g transform="translate(14 0)">
-      <path d="M144 206Q188 202 181 165Q178 148 192 146" fill="none" stroke="{INK}" stroke-width="7" stroke-linecap="round">
-        <animateTransform attributeName="transform" type="rotate" values="-5 144 206;5 144 206;-5 144 206" dur="3.6s" repeatCount="indefinite"/>
+      <path d="M144 208C174 206 188 194 185 178C182 168 186 164 192 162" fill="none" stroke="{INK}" stroke-width="7" stroke-linecap="round">
+        <animateTransform attributeName="transform" type="rotate" values="-4 144 208;4 144 208;-4 144 208" dur="4.2s" repeatCount="indefinite"/>
       </path>
       <path d="M78 212Q74 152 112 150Q150 152 146 212Z" fill="{INK}"/>
       <path d="M82 96L74 56L110 84Z" fill="{INK}"/>
-      <path d="M142 96L150 56L114 84Z" fill="{INK}"/>
+      <g>
+        <path d="M142 96L150 56L114 84Z" fill="{INK}"/>
+        <animateTransform attributeName="transform" type="rotate" values="0 142 96;0 142 96;7 142 96;0 142 96;0 142 96" keyTimes="0;.6;.66;.74;1" dur="7s" repeatCount="indefinite"/>
+      </g>
       <path d="M86 92L80 66L104 86Z" fill="{ACCENT}" opacity=".55"/>
       <path d="M138 92L144 66L120 86Z" fill="{ACCENT}" opacity=".55"/>
+      <ellipse cx="112" cy="186" rx="21" ry="27" fill="{PAPER_A}" opacity=".93"/>
+      <ellipse cx="98" cy="206" rx="13" ry="8" fill="{PAPER_A}" opacity=".93"/>
+      <ellipse cx="126" cy="206" rx="13" ry="8" fill="{PAPER_A}" opacity=".93"/>
+      <path d="M98 200v8M108 200v8M126 200v8M136 200v8" stroke="{INK}" stroke-width="1" opacity=".35"/>
+      <path d="M94 159Q112 172 130 159" fill="none" stroke="{ACCENT}" stroke-width="2.6" opacity=".9"/>
+      <g transform="translate(112 170)">
+        <circle r="6" fill="{GOLD}" stroke="{INK}" stroke-width="1.2"/>
+        <path d="M-2.5 3h5" stroke="{INK}" stroke-width="1.1"/>
+        <animateTransform attributeName="transform" type="rotate" values="-9;9;-9" dur="2.6s" additive="sum" repeatCount="indefinite"/>
+      </g>
       <circle cx="112" cy="120" r="41" fill="{INK}"/>
       <path d="M74 90Q76 56 112 56Q148 56 150 90Z" fill="{ACCENT}"/>
       <path d="M64 90Q112 102 160 90Q112 96 64 90Z" fill="{DEEP_RED}"/>
-      <circle cx="112" cy="74" r="6.5" fill="{GOLD}"/>
-      <circle cx="112" cy="74" r="2" fill="{INK}"/>
+      <path d="M0 -8L2.23 -3.07L7.61 -2.47L3.61 1.17L4.7 6.47L0 3.8L-4.7 6.47L-3.61 1.17L-7.61 -2.47L-2.23 -3.07Z" transform="translate(112 74)" fill="{GOLD}"/>
       <ellipse cx="98" cy="126" rx="5.5" ry="6.5" fill="{GOLD}">
         <animate attributeName="ry" values="6.5;6.5;0.8;6.5;6.5" keyTimes="0;.44;.5;.56;1" dur="5s" repeatCount="indefinite"/>
       </ellipse>
@@ -174,16 +226,12 @@ def build_cat():
       </ellipse>
       <path d="M108 140H116L112 146Z" fill="{GOLD}"/>
       <path d="M112 146q-5 6 -10 2M112 146q5 6 10 2" fill="none" stroke="{GOLD}" stroke-width="1.6" stroke-linecap="round"/>
-      <path d="M88 134H62M88 143H66M136 134H162M136 143H158" stroke="{GOLD}" stroke-width="1.4" stroke-linecap="round" opacity=".55"/>
-      <ellipse cx="112" cy="186" rx="21" ry="27" fill="{PAPER_A}" opacity=".93"/>
-      <ellipse cx="98" cy="206" rx="13" ry="8" fill="{PAPER_A}" opacity=".93"/>
-      <ellipse cx="126" cy="206" rx="13" ry="8" fill="{PAPER_A}" opacity=".93"/>
-      <path d="M98 200v8M108 200v8M126 200v8M136 200v8" stroke="{INK}" stroke-width="1" opacity=".35"/>
-      <path d="M52 212V134" stroke="{INK}" stroke-width="3.4" stroke-linecap="round"/>
-      <path d="M52 136L82 145L52 156Z" fill="{ACCENT}">
-        <animateTransform attributeName="transform" type="rotate" values="-4 52 145;5 52 145;-4 52 145" dur="2.8s" repeatCount="indefinite"/>
+      <path d="M88 130H64M88 134H62M88 143H66M136 130H160M136 134H162M136 143H158" stroke="{GOLD}" stroke-width="1.4" stroke-linecap="round" opacity=".55"/>
+      <path d="M30 212V136" stroke="{INK}" stroke-width="3.4" stroke-linecap="round"/>
+      <path d="M30 138L58 146L30 156Z" fill="{ACCENT}">
+        <animateTransform attributeName="transform" type="rotate" values="-4 30 147;5 30 147;-4 30 147" dur="2.8s" repeatCount="indefinite"/>
       </path>
-      <circle cx="52" cy="132" r="3.2" fill="{GOLD}"/>
+      <circle cx="30" cy="134" r="3.2" fill="{GOLD}"/>
     </g>
     <path d="M216 52H342Q358 52 358 68V132Q358 148 342 148H216Q200 148 200 132V130L176 118L200 106V68Q200 52 216 52Z" fill="{GLASS}" stroke="{INK}" stroke-width="1.6"/>
     {flip(CAT_LINES, 279, 106, 25, size=15, family=CJK, fill=INK, spacing=1, anchor="middle", begin=-4)}
@@ -197,19 +245,56 @@ def build_cat():
 # 纪念印章 · collectible stamps
 # --------------------------------------------------------------------------
 
+STAMP_ICONS = {
+    # 纸鹤 · paper crane for the protocol link
+    "upi": '<path d="M0 0L-10 -10L-4 3L2 1L8 -11L4 4L2 1L-4 3L-2 6L2 1"/>',
+    # 齿轮 · gear for the automation toolkit
+    "turb": ('<circle r="5.6"/>'
+             '<path d="M0 -9.4V-6.2M0 6.2V9.4M-9.4 0H-6.2M6.2 0H9.4M-6.7 -6.7L-4.4 -4.4M4.4 4.4L6.7 6.7M6.7 -6.7L4.4 -4.4M-4.4 4.4L-6.7 6.7"/>'),
+    # 钥匙 · brass key for the OAuth helper
+    "oauth": '<circle cx="-4.6" cy="0" r="4"/><path d="M-.6 0H9.4M5.4 0V3.6M8.6 0V3"/>',
+    # 小站 · little homepage for the personal site
+    "web": '<path d="M-8 2V-4L0 -9.4L8 -4V2Z"/><path d="M-2.6 2V-2.6H2.6V2"/>',
+}
+
 STAMPS = (
-    ("upi", "UPI", "ZERO LINK", "#b75640", 3),
-    ("turb", "TURB", "REGISTER", "#2f5e68", 5),
-    ("oauth", "OAUTH", "HELPER", "#a2762f", 7),
-    ("web", "WEB", "PERSONAL SITE", "#7a4a63", 11),
+    ("upi", "UPI", "ZERO LINK", "#b75640", 3, -9),
+    ("turb", "TURB", "REGISTER", "#2f5e68", 5, -6),
+    ("oauth", "OAUTH", "HELPER", "#a2762f", 7, -11),
+    ("web", "WEB", "PERSONAL SITE", "#7a4a63", 11, -7),
 )
 
+DEFAULT_STARS = {"upi": 50, "turb": 49, "oauth": 4, "web": 0}
 
-def build_stamps():
-    for slug, big, small, ink, seed in STAMPS:
+
+def committed_stars():
+    """Carry the star counts over from the committed stamps.
+
+    Keeps a plain, offline run of ``build_journey.py`` from wiping the numbers
+    that ``build_tag.py`` refreshed.
+    """
+    found = {}
+    for slug, _, _, _, _, _ in STAMPS:
+        path = ASSETS / f"stamp-{slug}.svg"
+        if not path.exists():
+            continue
+        text = path.read_text(encoding="utf-8")
+        match = re.search(r"· ★ (\d+)</textPath>", text)
+        if match:
+            found[slug] = int(match.group(1))
+        elif "· 新站</textPath>" in text:
+            found[slug] = 0
+    return found
+
+
+def build_stamps(stars=None):
+    stars = {**DEFAULT_STARS, **committed_stars(), **(stars or {})}
+    for slug, big, small, ink, seed, tilt in STAMPS:
+        collected = stars.get(slug, 0)
+        footer = f"{small} · {'★ ' + str(collected) if collected else '新站'}"
         svg = f'''<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="140" height="140" viewBox="0 0 140 140" role="img" aria-labelledby="title desc">
   <title id="title">{big} 纪念印章</title>
-  <desc id="desc">A round rubber stamp for the {big} project, tilted slightly, with arc lettering and a grainy ink texture.</desc>
+  <desc id="desc">A round rubber stamp for the {big} project, tilted {tilt} degrees, with arc lettering, its own little emblem, {collected} stars collected and a grainy ink texture.</desc>
   <defs>
     <clipPath id="disc"><circle cx="70" cy="70" r="63"/></clipPath>
     <path id="topArc" d="M18 70A52 52 0 0 1 122 70" fill="none"/>
@@ -219,19 +304,19 @@ def build_stamps():
       <feColorMatrix in="noise" type="matrix" values="0 0 0 0 .45 0 0 0 0 .18 0 0 0 0 .12 0 0 0 .65 0"/>
     </filter>
   </defs>
-  <g transform="rotate(-9 70 70)" opacity=".94">
+  <g transform="rotate({tilt} 70 70)" opacity=".94">
     <circle cx="70" cy="70" r="63" fill="none" stroke="{ink}" stroke-width="3.4"/>
     <circle cx="70" cy="70" r="56" fill="none" stroke="{ink}" stroke-width="1" opacity=".6"/>
     <g clip-path="url(#disc)" opacity=".2"><rect width="140" height="140" filter="url(#grain)"/></g>
     <text font-family="{SERIF}" font-size="8.5" fill="{ink}" letter-spacing="2.2">
       <textPath xlink:href="#topArc" href="#topArc" startOffset="50%" text-anchor="middle">WANGSHEN233 · 沿途盖章</textPath>
     </text>
-    <text font-family="{SERIF}" font-size="8" fill="{ink}" letter-spacing="1.6">
-      <textPath xlink:href="#bottomArc" href="#bottomArc" startOffset="50%" text-anchor="middle">{small}</textPath>
+    <text font-family="{SERIF}" font-size="8" fill="{ink}" letter-spacing="1.4">
+      <textPath xlink:href="#bottomArc" href="#bottomArc" startOffset="50%" text-anchor="middle">{footer}</textPath>
     </text>
-    <text x="70" y="76" text-anchor="middle" font-family="{SERIF}" font-size="27" fill="{ink}" letter-spacing="1.5">{big}</text>
-    <path d="M40 88H100" stroke="{ink}" stroke-width="1" opacity=".55"/>
-    <text x="70" y="100" text-anchor="middle" font-family="{CJK}" font-size="9" fill="{ink}" opacity=".85">途中下車</text>
+    <text x="70" y="74" text-anchor="middle" font-family="{SERIF}" font-size="27" fill="{ink}" letter-spacing="1.5">{big}</text>
+    <g transform="translate(70 89)" fill="none" stroke="{ink}" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" opacity=".9">{STAMP_ICONS[slug]}</g>
+    <text x="70" y="106" text-anchor="middle" font-family="{CJK}" font-size="8.5" fill="{ink}" opacity=".85">途中下車</text>
   </g>
 </svg>'''
         (ASSETS / f"stamp-{slug}.svg").write_text(svg, encoding="utf-8")
@@ -252,11 +337,10 @@ DEFAULT_STATS = {
 }
 
 
-def barcode(login, right, bottom, height, digits=30):
+def barcode(login, right, bottom, height, digits=34):
     digest = hashlib.sha256(login.encode("utf-8")).digest()
     widths = [1.1 + digest[i % len(digest)] % 5 * .55 for i in range(digits)]
-    gaps = 1.25 * (digits - 1)
-    total = sum(widths) + gaps
+    total = sum(widths) + 1.25 * (digits - 1)
     x, bars = right - total, []
     for width in widths:
         bars.append(f'<rect x="{x:.1f}" y="{bottom - height}" width="{width:.2f}" height="{height}"/>')
@@ -267,20 +351,20 @@ def barcode(login, right, bottom, height, digits=30):
 def build_tag(stats=None):
     stats = {**DEFAULT_STATS, **(stats or {})}
     columns = (
-        ("REPOS 仓库 · 件", f"{stats['repos']}"),
-        ("FOLLOWERS 同行 · 人", f"{stats['followers']}"),
-        ("STARS 星星 · 颗", f"{stats['stars']}"),
-        ("SINCE 出发", f"{stats['since']}"),
+        ("REPOS 仓库 · 件", str(stats["repos"]), 24),
+        ("FOLLOWERS 同行 · 人", str(stats["followers"]), 24),
+        ("STARS 星星 · 颗", str(stats["stars"]), 24),
+        ("SINCE 出发", str(stats["since"]), 20),
     )
     stats_cells = "".join(
         f'''<g>
-        <text x="{320 + index * 120}" y="54" font-family="{MONO}" font-size="8" fill="{MUTED}" letter-spacing="1.6">{label}</text>
-        <text x="{320 + index * 120}" y="84" font-family="{MONO}" font-size="{20 if index == 3 else 24}" fill="{INK}">{value}</text>
-      </g>''' for index, (label, value) in enumerate(columns)
+        <text x="{316 + index * 118}" y="54" font-family="{MONO}" font-size="8" fill="{MUTED}" letter-spacing="1.6">{label}</text>
+        <text x="{316 + index * 118}" y="84" font-family="{MONO}" font-size="{size}" fill="{INK}">{value}</text>
+      </g>''' for index, (label, value, size) in enumerate(columns)
     )
     svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="880" height="164" viewBox="0 0 880 164" role="img" aria-labelledby="title desc">
   <title id="title">行李牌 · baggage tag</title>
-  <desc id="desc">A paper luggage tag: passenger {stats['name']}, seat 233, departed {stats['since']}, with live counts for repositories, followers and stars, refreshed every day.</desc>
+  <desc id="desc">A paper luggage tag: passenger {stats['name']}, seat 233, departed {stats['since']}, with live counts for repositories, followers and stars, a barcode and a this-way-up mark.</desc>
   <defs>
     {paper_defs()}
     <clipPath id="tag"><rect width="880" height="164" rx="22"/></clipPath>
@@ -288,9 +372,10 @@ def build_tag(stats=None):
   <g clip-path="url(#tag)">
     <rect width="880" height="164" fill="url(#paper)"/>
     {paper_wash(880, 164, 24)}
+    <rect x="9" y="9" width="862" height="146" rx="16" fill="none" stroke="{INK}" stroke-width="1" opacity=".13"/>
     <circle cx="46" cy="75" r="13" fill="none" stroke="{INK}" stroke-width="2.6"/>
     <circle cx="46" cy="75" r="20" fill="none" stroke="{MUTED}" stroke-width="1" stroke-dasharray="2 4" opacity=".45"/>
-    <path d="M40 66q6 -4 12 0" fill="none" stroke="{MUTED}" stroke-width="1.2" opacity=".6"/>
+    <path d="M39 68q7 -5 14 0" fill="none" stroke="{MUTED}" stroke-width="1.2" opacity=".6"/>
     <path d="M112 20V140" stroke="{MUTED}" stroke-width="1" stroke-dasharray="3 6" opacity=".55"/>
     <text x="134" y="56" font-family="{MONO}" font-size="21" fill="{INK}">No. 233</text>
     <text x="134" y="76" font-family="{MONO}" font-size="8" fill="{MUTED}" letter-spacing="3">BAGGAGE TAG</text>
@@ -300,8 +385,14 @@ def build_tag(stats=None):
       <text x="812" y="81" text-anchor="middle" font-family="{CJK}" font-size="13" fill="{ACCENT}" opacity=".9">易碎：随缘更新</text>
     </g>
     {stats_cells}
-    <g fill="{INK}" opacity=".7">{barcode(stats['login'], 770, 138, 16, 34)}</g>
-    <text x="134" y="136" font-family="{MONO}" font-size="7.5" fill="{MUTED}" letter-spacing="1.4">UPDATED {stats['updated']} · 由 GitHub Actions 每日更新 · 行李请勿倒放</text>
+    <g transform="translate(500 138)" fill="none" stroke="{INK}" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" opacity=".75">
+      <path d="M0 0V-15M-4.5 -10.5L0 -15L4.5 -10.5"/>
+      <path d="M13 0V-15M8.5 -10.5L13 -15L17.5 -10.5"/>
+    </g>
+    <text x="530" y="136" font-family="{MONO}" font-size="7.5" fill="{MUTED}" letter-spacing="1.4">请勿倒放 THIS WAY UP</text>
+    <g fill="{INK}" opacity=".7">{barcode(stats['login'], 770, 138, 16)}</g>
+    <text x="134" y="136" font-family="{MONO}" font-size="7.5" fill="{MUTED}" letter-spacing="1.4">UPDATED {stats['updated']} · 由 GitHub Actions 每日更新</text>
+    <path d="M24 152H856" stroke="{MUTED}" stroke-width="1" stroke-dasharray="2 6" opacity=".4"/>
   </g>
 </svg>'''
     (ASSETS / "journey-tag.svg").write_text(svg, encoding="utf-8")

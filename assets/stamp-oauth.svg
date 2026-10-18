@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="140" height="140" viewBox="0 0 140 140" role="img" aria-labelledby="title desc">
   <title id="title">OAUTH 纪念印章</title>
-  <desc id="desc">A round rubber stamp for the OAUTH project, tilted slightly, with arc lettering and a grainy ink texture.</desc>
+  <desc id="desc">A round rubber stamp for the OAUTH project, tilted -11 degrees, with arc lettering, its own little emblem, 4 stars collected and a grainy ink texture.</desc>
   <defs>
     <clipPath id="disc"><circle cx="70" cy="70" r="63"/></clipPath>
     <path id="topArc" d="M18 70A52 52 0 0 1 122 70" fill="none"/>
@@ -10,18 +10,18 @@
       <feColorMatrix in="noise" type="matrix" values="0 0 0 0 .45 0 0 0 0 .18 0 0 0 0 .12 0 0 0 .65 0"/>
     </filter>
   </defs>
-  <g transform="rotate(-9 70 70)" opacity=".94">
+  <g transform="rotate(-11 70 70)" opacity=".94">
     <circle cx="70" cy="70" r="63" fill="none" stroke="#a2762f" stroke-width="3.4"/>
     <circle cx="70" cy="70" r="56" fill="none" stroke="#a2762f" stroke-width="1" opacity=".6"/>
     <g clip-path="url(#disc)" opacity=".2"><rect width="140" height="140" filter="url(#grain)"/></g>
     <text font-family="Georgia,'Times New Roman',serif" font-size="8.5" fill="#a2762f" letter-spacing="2.2">
       <textPath xlink:href="#topArc" href="#topArc" startOffset="50%" text-anchor="middle">WANGSHEN233 · 沿途盖章</textPath>
     </text>
-    <text font-family="Georgia,'Times New Roman',serif" font-size="8" fill="#a2762f" letter-spacing="1.6">
-      <textPath xlink:href="#bottomArc" href="#bottomArc" startOffset="50%" text-anchor="middle">HELPER</textPath>
+    <text font-family="Georgia,'Times New Roman',serif" font-size="8" fill="#a2762f" letter-spacing="1.4">
+      <textPath xlink:href="#bottomArc" href="#bottomArc" startOffset="50%" text-anchor="middle">HELPER · ★ 4</textPath>
     </text>
-    <text x="70" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="27" fill="#a2762f" letter-spacing="1.5">OAUTH</text>
-    <path d="M40 88H100" stroke="#a2762f" stroke-width="1" opacity=".55"/>
-    <text x="70" y="100" text-anchor="middle" font-family="'STKaiti','KaiTi','Microsoft YaHei',serif" font-size="9" fill="#a2762f" opacity=".85">途中下車</text>
+    <text x="70" y="74" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="27" fill="#a2762f" letter-spacing="1.5">OAUTH</text>
+    <g transform="translate(70 89)" fill="none" stroke="#a2762f" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" opacity=".9"><circle cx="-4.6" cy="0" r="4"/><path d="M-.6 0H9.4M5.4 0V3.6M8.6 0V3"/></g>
+    <text x="70" y="106" text-anchor="middle" font-family="'STKaiti','KaiTi','Microsoft YaHei',serif" font-size="8.5" fill="#a2762f" opacity=".85">途中下車</text>
   </g>
 </svg>
