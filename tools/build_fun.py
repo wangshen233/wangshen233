@@ -50,23 +50,28 @@ def text_width(text, size):
     return sum(size * (1.0 if ord(ch) > 0x2E80 else 0.52) for ch in text)
 
 
+def slot_visibility(index, total, duration, begin=0.0, values="0;0;1;1;0;0"):
+    """Hide/show animation that keeps one of ``total`` variants visible per slice."""
+    slot = duration / total
+    start, end = index * slot / duration, (index + 1) * slot / duration
+    keys = f"0;{start:.4f};{min(start + .012, end):.4f};{max(end - .012, start):.4f};{end:.4f};1"
+    return (f'<animate attributeName="opacity" values="{values}" keyTimes="{keys}" '
+            f'dur="{duration}s" begin="{begin}s" repeatCount="indefinite"/>')
+
+
 def flip(items, x, y, duration, *, size=14, family=None, fill=ACCENT, spacing=0, anchor="start", begin=0.0):
     """A split-flap cell: each variant is visible for its own slice of the loop.
 
     ``items`` may be strings or ``(text, colour)`` pairs.
     """
     family = family or CJK
-    slot = duration / len(items)
     out = []
     for index, item in enumerate(items):
         text, colour = item if isinstance(item, (tuple, list)) else (item, fill)
-        start, end = index * slot / duration, (index + 1) * slot / duration
-        keys = f"0;{start:.4f};{min(start + .012, end):.4f};{max(end - .012, start):.4f};{end:.4f};1"
         out.append(
             f'<text x="{x}" y="{y}" text-anchor="{anchor}" font-family="{family}" font-size="{size}" '
             f'fill="{colour}" letter-spacing="{spacing}" opacity="0">{text}'
-            f'<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="{keys}" '
-            f'dur="{duration}s" begin="{begin}s" repeatCount="indefinite"/></text>'
+            f'{slot_visibility(index, len(items), duration, begin)}</text>'
         )
     return "".join(out)
 
@@ -84,12 +89,30 @@ BOARD_ROWS = (
      (("车次取消", ACCENT), ("正在抢修", OCHRE), ("请手动换乘", OCHRE))),
     ("Git 号", "线上", "4 站台",
      (("准点发车", GREEN), ("已推送成功", GREEN), ("无冲突合并", GREEN))),
+    ("233 夜班", "天亮", "5 站台",
+     (("正在加班", ACCENT), ("咖啡续命中", OCHRE), ("天亮前收工", GREEN))),
 )
 
-TICKER = "欢迎乘坐 233 次列车 ・ 前方到站：下一站，开个新坑 ・ 请把灵感随身带上车 ・ 本站全天候供应咖啡与 bug ・ 末班车 23:33 ・ "
+TICKER = "欢迎乘坐 233 次列车 ・ 前方到站：下一站，开个新坑 ・ 请把灵感随身带上车 ・ 本站全天候供应咖啡与 bug ・ 深夜加班专列每晚 22:00 开行 ・ 末班车 23:33 ・ "
 
 # Left edge and width of the four flipping columns.
 COLUMNS = ((28, 80, 36), (124, 308, 132), (444, 92, 452), (548, 300, 556))
+
+
+def night_stop(x, y):
+    """A crescent moon and two small sparkles, marking the late-night service."""
+    sparkle = "M0 -8L1.7 -1.7L8 0L1.7 1.7L0 8L-1.7 1.7L-8 0L-1.7 -1.7Z"
+    return f'''<g fill="{GOLD}" opacity=".9">
+      <path d="M0 -7A7 7 0 1 1 0 7A11 11 0 0 0 0 -7Z" transform="translate({x} {y - 5})"/>
+      <g transform="translate({x + 15} {y - 13}) scale(.5)">
+        <path d="{sparkle}"/>
+        <animate attributeName="opacity" values=".35;.95;.35" dur="3.4s" repeatCount="indefinite"/>
+      </g>
+      <g transform="translate({x + 10} {y + 4}) scale(.38)">
+        <path d="{sparkle}"/>
+        <animate attributeName="opacity" values=".9;.3;.9" dur="4.1s" repeatCount="indefinite"/>
+      </g>
+    </g>'''
 
 
 def build_board():
@@ -108,12 +131,13 @@ def build_board():
           <text x="132" y="{y}" font-family="{CJK}" font-size="15" fill="{INK}">{destination}</text>
           <text x="452" y="{y}" font-family="{MONO}" font-size="12" fill="{MUTED}">{platform}</text>
           {flip(statuses, 556, y, 8.4 + index * 1.3, size=14, spacing=1, begin=-index * 1.7)}
+          {night_stop(x=404, y=y) if index == len(BOARD_ROWS) - 1 else ''}
         </g>''')
 
     ticker_gap = text_width(TICKER, 12)
-    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="880" height="268" viewBox="0 0 880 268" role="img" aria-labelledby="title desc">
+    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="880" height="296" viewBox="0 0 880 296" role="img" aria-labelledby="title desc">
   <title id="title">站台广播 · 出发时刻表</title>
-  <desc id="desc">A paper departure board of flipping split-flap panels. Four services cycle through playful statuses in colour-coded ink — on time in green, delayed or cancelled in red — while an announcement ticker scrolls along the bottom.</desc>
+  <desc id="desc">A paper departure board of flipping split-flap panels. Five services cycle through playful statuses in colour-coded ink, and an announcement ticker scrolls along the bottom. The last row is the late-night overtime train, marked with a crescent moon.</desc>
   <defs>
     {paper_defs()}
     <linearGradient id="flap" x1="0" y1="0" x2="0" y2="1">
@@ -122,12 +146,12 @@ def build_board():
       <stop offset=".51" stop-color="#eaddc4"/>
       <stop offset="1" stop-color="#f5ebd8"/>
     </linearGradient>
-    <clipPath id="board"><path d="M20 0H860Q880 0 880 20V84Q863 84 863 100Q863 116 880 116V248Q880 268 860 268H20Q0 268 0 248V116Q17 116 17 100Q17 84 0 84V20Q0 0 20 0Z"/></clipPath>
-    <clipPath id="tickerClip"><rect x="30" y="228" width="850" height="40"/></clipPath>
+    <clipPath id="board"><path d="M20 0H860Q880 0 880 20V84Q863 84 863 100Q863 116 880 116V276Q880 296 860 296H20Q0 296 0 276V116Q17 116 17 100Q17 84 0 84V20Q0 0 20 0Z"/></clipPath>
+    <clipPath id="tickerClip"><rect x="30" y="256" width="850" height="40"/></clipPath>
   </defs>
   <g clip-path="url(#board)">
-    <rect width="880" height="268" fill="url(#paper)"/>
-    {paper_wash(880, 268)}
+    <rect width="880" height="296" fill="url(#paper)"/>
+    {paper_wash(880, 296)}
     <text x="36" y="50" font-family="{CJK}" font-size="23" fill="{INK}" letter-spacing="2">站台广播</text>
     <text x="36" y="70" font-family="{MONO}" font-size="9" fill="{MUTED}" letter-spacing="3">DEPARTURES · 心情时刻表</text>
     <rect x="606" y="33" width="122" height="23" rx="11.5" fill="#f4e9d6" stroke="{MUTED}" stroke-width=".7" opacity=".8"/>
@@ -146,11 +170,11 @@ def build_board():
     <text x="556" y="102" font-family="{MONO}" font-size="8.5" fill="{MUTED}" letter-spacing="2.4">状态</text>
     <path d="M28 107H848" stroke="{MUTED}" stroke-width=".8" stroke-dasharray="2 6" opacity=".35"/>
     {''.join(rows)}
-    <rect y="228" width="880" height="40" fill="{INK}"/>
-    <path d="M16 248L26 243V253Z" fill="{GOLD}"/>
+    <rect y="256" width="880" height="40" fill="{INK}"/>
+    <path d="M16 276L26 271V281Z" fill="{GOLD}"/>
     <g clip-path="url(#tickerClip)">
       <g font-family="{CJK}" font-size="12" fill="#f7efdf" letter-spacing="1">
-        <text x="30" y="253" opacity=".92">{TICKER}{TICKER}</text>
+        <text x="30" y="281" opacity=".92">{TICKER}{TICKER}</text>
         <animateTransform attributeName="transform" type="translate" from="0 0" to="-{ticker_gap:.0f} 0" dur="26s" repeatCount="indefinite"/>
       </g>
     </g>
@@ -163,7 +187,56 @@ def build_board():
 # 值班站长 · station-master cat
 # --------------------------------------------------------------------------
 
-CAT_LINES = ("喵～", "车票拿好。", "别熬太晚。", "灵感放好，", "开个新坑？")
+CAT_MOODS = (
+    ("normal", "喵～"),
+    ("wink", "车票拿好。"),
+    ("sleepy", "别熬太晚。"),
+    ("sparkle", "灵感放好，"),
+    ("excited", "开个新坑？"),
+)
+CAT_LINES = tuple(line for _, line in CAT_MOODS)
+
+# One face per mood, so the expression matches the line she is saying.
+CAT_FACES = {
+    "normal": '''<ellipse cx="98" cy="126" rx="5.5" ry="6.5" fill="{GOLD}">
+          <animate attributeName="ry" values="6.5;6.5;0.8;6.5;6.5" keyTimes="0;.44;.5;.56;1" dur="5s" repeatCount="indefinite"/>
+        </ellipse>
+        <ellipse cx="126" cy="126" rx="5.5" ry="6.5" fill="{GOLD}">
+          <animate attributeName="ry" values="6.5;6.5;0.8;6.5;6.5" keyTimes="0;.44;.5;.56;1" dur="5s" begin="-.12s" repeatCount="indefinite"/>
+        </ellipse>
+        <path d="M112 146q-5 6 -10 2M112 146q5 6 10 2" fill="none" stroke="{GOLD}" stroke-width="1.6" stroke-linecap="round"/>''',
+    "wink": '''<ellipse cx="98" cy="126" rx="5.5" ry="6.5" fill="{GOLD}">
+          <animate attributeName="ry" values="6.5;6.5;0.8;6.5;6.5" keyTimes="0;.44;.5;.56;1" dur="5s" repeatCount="indefinite"/>
+        </ellipse>
+        <path d="M119 128q7 -7 14 0" fill="none" stroke="{GOLD}" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M112 146q-5 6 -10 2M112 146q5 6 10 2" fill="none" stroke="{GOLD}" stroke-width="1.6" stroke-linecap="round"/>''',
+    "sleepy": '''<path d="M92 125q6 7 12 0M120 125q6 7 12 0" fill="none" stroke="{GOLD}" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="112" cy="149" r="3" fill="none" stroke="{GOLD}" stroke-width="1.5"/>
+        <g font-family="{SERIF}" font-size="13" fill="{GOLD}">
+          <text x="148" y="108">Z<animate attributeName="opacity" values=".9;0" dur="2.5s" repeatCount="indefinite"/>
+            <animateTransform attributeName="transform" type="translate" values="0 0;9 -11" dur="2.5s" repeatCount="indefinite"/>
+          </text>
+          <text x="156" y="100" font-size="10">Z<animate attributeName="opacity" values=".9;0" dur="2.5s" begin="-1.3s" repeatCount="indefinite"/>
+            <animateTransform attributeName="transform" type="translate" values="0 0;7 -9" dur="2.5s" begin="-1.3s" repeatCount="indefinite"/>
+          </text>
+        </g>''',
+    "sparkle": '''<g fill="{GOLD}">
+          <g><path d="M0 -8L1.7 -1.7L8 0L1.7 1.7L0 8L-1.7 1.7L-8 0L-1.7 -1.7Z"/>
+            <animateTransform attributeName="transform" type="rotate" values="0 98 126;360 98 126" dur="5s" repeatCount="indefinite"/>
+            <animateTransform attributeName="transform" type="translate" values="98 126;98 126" dur="1s" additive="sum" repeatCount="indefinite"/>
+          </g>
+          <path d="M0 -7L1.5 -1.5L7 0L1.5 1.5L0 7L-1.5 1.5L-7 0L-1.5 -1.5Z" transform="translate(126 126)"/>
+        </g>
+        <path d="M112 146q-5 6 -10 2M112 146q5 6 10 2" fill="none" stroke="{GOLD}" stroke-width="1.6" stroke-linecap="round"/>''',
+    "excited": '''<ellipse cx="98" cy="126" rx="6.4" ry="8" fill="{GOLD}"/>
+        <ellipse cx="126" cy="126" rx="6.4" ry="8" fill="{GOLD}"/>
+        <circle cx="100" cy="123" r="1.9" fill="{PAPER_A}" opacity=".75"/>
+        <circle cx="128" cy="123" r="1.9" fill="{PAPER_A}" opacity=".75"/>
+        <path d="M103 147q9 4 18 0q-4 11 -9 11q-5 0 -9 -11Z" fill="{GOLD}"/>
+        <path d="M0 -7L1.5 -1.5L7 0L1.5 1.5L0 7L-1.5 1.5L-7 0L-1.5 -1.5Z" transform="translate(152 98)" fill="{GOLD}">
+          <animate attributeName="opacity" values="0;.95;0" dur="2.5s" repeatCount="indefinite"/>
+        </path>''',
+}
 
 
 def build_cat():
@@ -176,9 +249,14 @@ def build_cat():
         <animateTransform attributeName="transform" type="translate" values="{x1} {y1};{x2} {y2}" dur="{dur}s" begin="{begin}s" repeatCount="indefinite"/>
         <animate attributeName="opacity" values="0;.85;.85;0" keyTimes="0;.15;.82;1" dur="{dur}s" begin="{begin}s" repeatCount="indefinite"/>
       </g>''')
+    faces = "".join(
+        f'''<g opacity="0">{CAT_FACES[mood].format(GOLD=GOLD, PAPER_A=PAPER_A, SERIF=SERIF)}
+        {slot_visibility(index, len(CAT_MOODS), 25, -4)}
+      </g>''' for index, (mood, _) in enumerate(CAT_MOODS)
+    )
     svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="380" height="252" viewBox="0 0 380 252" role="img" aria-labelledby="title desc">
   <title id="title">值班站长三花</title>
-  <desc id="desc">A paper card with the station-master cat 三花 in a red cap, a waving flag, a swinging bell and a speech bubble that cycles through five short messages while paper cranes drift past.</desc>
+  <desc id="desc">A paper card with the station-master cat 三花 in a red cap, a waving flag, a swinging bell and a speech bubble that cycles through five short messages, each matched by her expression — a wink, a sleepy doze, starry eyes, an excited grin — while paper cranes drift past.</desc>
   <defs>
     {paper_defs()}
     <g id="crane" fill="#fbeecd" stroke="#b08b4a" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">
@@ -218,14 +296,8 @@ def build_cat():
       <path d="M74 90Q76 56 112 56Q148 56 150 90Z" fill="{ACCENT}"/>
       <path d="M64 90Q112 102 160 90Q112 96 64 90Z" fill="{DEEP_RED}"/>
       <path d="M0 -8L2.23 -3.07L7.61 -2.47L3.61 1.17L4.7 6.47L0 3.8L-4.7 6.47L-3.61 1.17L-7.61 -2.47L-2.23 -3.07Z" transform="translate(112 74)" fill="{GOLD}"/>
-      <ellipse cx="98" cy="126" rx="5.5" ry="6.5" fill="{GOLD}">
-        <animate attributeName="ry" values="6.5;6.5;0.8;6.5;6.5" keyTimes="0;.44;.5;.56;1" dur="5s" repeatCount="indefinite"/>
-      </ellipse>
-      <ellipse cx="126" cy="126" rx="5.5" ry="6.5" fill="{GOLD}">
-        <animate attributeName="ry" values="6.5;6.5;0.8;6.5;6.5" keyTimes="0;.44;.5;.56;1" dur="5s" begin="-.12s" repeatCount="indefinite"/>
-      </ellipse>
       <path d="M108 140H116L112 146Z" fill="{GOLD}"/>
-      <path d="M112 146q-5 6 -10 2M112 146q5 6 10 2" fill="none" stroke="{GOLD}" stroke-width="1.6" stroke-linecap="round"/>
+      {faces}
       <path d="M88 130H64M88 134H62M88 143H66M136 130H160M136 134H162M136 143H158" stroke="{GOLD}" stroke-width="1.4" stroke-linecap="round" opacity=".55"/>
       <path d="M30 212V136" stroke="{INK}" stroke-width="3.4" stroke-linecap="round"/>
       <path d="M30 138L58 146L30 156Z" fill="{ACCENT}">

@@ -161,14 +161,14 @@ def build_readme():
 </details>
 
 <p align="center">
-  <img src="./assets/journey-board.svg" width="100%" alt="站台广播：233 次开往下一个坑正在检票，0 次开往早睡无限期晚点，404 次开往灵感车次取消，Git 号开往线上准点发车" />
+  <img src="./assets/journey-board.svg" width="100%" alt="站台广播：233 次开往下一个坑正在检票，0 次开往早睡无限期晚点，404 次开往灵感车次取消，Git 号开往线上准点发车，还有一趟 233 夜班开往天亮" />
 </p>
 
 <details>
   <summary>🐈 值班站长室（点开有猫）</summary>
   <br />
   <p align="center">
-    <img src="./assets/journey-cat.svg" width="380" alt="值班站长三花戴着红帽子，尾巴轻晃，说：本站不查票，只查 bug。" />
+    <img src="./assets/journey-cat.svg" width="380" alt="值班站长三花戴着红帽子和金铃铛，说话时会眨眼、打盹、眼里冒星星，她说：本站不查票，只查 bug。" />
   </p>
 </details>
 
@@ -200,6 +200,7 @@ def build_readme():
   - 随身行李不限重，但请勿携带没解决的 bug 上车。
   - 车厢内欢迎大声讨论灵感，禁止在凌晨三点之后发版。
   - 座位 233 常年空着，路过就坐下。
+  - 深夜加班专列每晚 22:00 从 5 站台开行，天亮前收工。
 
   **今天想坐哪趟车？**
 
