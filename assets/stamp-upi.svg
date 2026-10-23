@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="140" height="140" viewBox="0 0 140 140" role="img" aria-labelledby="title desc">
   <title id="title">UPI 纪念印章</title>
-  <desc id="desc">A round rubber stamp for the UPI project, tilted -9 degrees, with arc lettering, its own little emblem, 55 stars collected and a grainy ink texture.</desc>
+  <desc id="desc">A round rubber stamp for the UPI project, tilted -9 degrees, with arc lettering, its own little emblem, 56 stars collected and a grainy ink texture.</desc>
   <defs>
     <clipPath id="disc"><circle cx="70" cy="70" r="63"/></clipPath>
     <path id="topArc" d="M18 70A52 52 0 0 1 122 70" fill="none"/>
@@ -18,7 +18,7 @@
       <textPath xlink:href="#topArc" href="#topArc" startOffset="50%" text-anchor="middle">WANGSHEN233 · 沿途盖章</textPath>
     </text>
     <text font-family="Georgia,'Times New Roman',serif" font-size="8" fill="#b75640" letter-spacing="1.4">
-      <textPath xlink:href="#bottomArc" href="#bottomArc" startOffset="50%" text-anchor="middle">ZERO LINK · ★ 55</textPath>
+      <textPath xlink:href="#bottomArc" href="#bottomArc" startOffset="50%" text-anchor="middle">ZERO LINK · ★ 56</textPath>
     </text>
     <text x="70" y="74" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="27" fill="#b75640" letter-spacing="1.5">UPI</text>
     <g transform="translate(70 89)" fill="none" stroke="#b75640" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" opacity=".9"><path d="M0 0L-10 -10L-4 3L2 1L8 -11L4 4L2 1L-4 3L-2 6L2 1"/></g>
