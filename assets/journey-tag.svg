@@ -31,7 +31,7 @@
         <text x="434" y="84" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="24" fill="#274d57">22</text>
       </g><g>
         <text x="552" y="54" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="8" fill="#7c7567" letter-spacing="1.6">STARS 星星 · 颗</text>
-        <text x="552" y="84" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="24" fill="#274d57">120</text>
+        <text x="552" y="84" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="24" fill="#274d57">121</text>
       </g><g>
         <text x="670" y="54" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="8" fill="#7c7567" letter-spacing="1.6">SINCE 出发</text>
         <text x="670" y="84" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="20" fill="#274d57">2022.09</text>
@@ -42,7 +42,7 @@
     </g>
     <text x="530" y="136" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="7.5" fill="#7c7567" letter-spacing="1.4">请勿倒放 THIS WAY UP</text>
     <g fill="#274d57" opacity=".7"><rect x="656.1" y="122" width="1.65" height="16"/><rect x="659.0" y="122" width="3.30" height="16"/><rect x="663.6" y="122" width="1.65" height="16"/><rect x="666.5" y="122" width="1.65" height="16"/><rect x="669.4" y="122" width="1.10" height="16"/><rect x="671.7" y="122" width="2.20" height="16"/><rect x="675.2" y="122" width="2.75" height="16"/><rect x="679.2" y="122" width="1.10" height="16"/><rect x="681.5" y="122" width="3.30" height="16"/><rect x="686.1" y="122" width="2.20" height="16"/><rect x="689.5" y="122" width="1.10" height="16"/><rect x="691.9" y="122" width="1.65" height="16"/><rect x="694.8" y="122" width="2.75" height="16"/><rect x="698.8" y="122" width="3.30" height="16"/><rect x="703.3" y="122" width="2.75" height="16"/><rect x="707.3" y="122" width="2.20" height="16"/><rect x="710.8" y="122" width="2.20" height="16"/><rect x="714.2" y="122" width="2.20" height="16"/><rect x="717.7" y="122" width="1.65" height="16"/><rect x="720.6" y="122" width="3.30" height="16"/><rect x="725.1" y="122" width="2.75" height="16"/><rect x="729.1" y="122" width="1.10" height="16"/><rect x="731.5" y="122" width="1.65" height="16"/><rect x="734.4" y="122" width="2.75" height="16"/><rect x="738.4" y="122" width="2.75" height="16"/><rect x="742.4" y="122" width="1.65" height="16"/><rect x="745.3" y="122" width="2.20" height="16"/><rect x="748.8" y="122" width="1.65" height="16"/><rect x="751.6" y="122" width="1.10" height="16"/><rect x="754.0" y="122" width="1.10" height="16"/><rect x="756.4" y="122" width="3.30" height="16"/><rect x="760.9" y="122" width="1.65" height="16"/><rect x="763.8" y="122" width="1.65" height="16"/><rect x="766.7" y="122" width="3.30" height="16"/></g>
-    <text x="134" y="136" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="7.5" fill="#7c7567" letter-spacing="1.4">UPDATED 2026-10-24 · 由 GitHub Actions 每日更新</text>
+    <text x="134" y="136" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="7.5" fill="#7c7567" letter-spacing="1.4">UPDATED 2026-10-25 · 由 GitHub Actions 每日更新</text>
     <path d="M24 152H856" stroke="#7c7567" stroke-width="1" stroke-dasharray="2 6" opacity=".4"/>
   </g>
 </svg>
