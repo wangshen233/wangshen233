@@ -1,35 +1,21 @@
-"""Fetch live profile numbers and refresh the artwork that carries them.
+"""Fetch live GitHub metrics and refresh FM 233.0 radio & cinema strips."""
 
-Runs in GitHub Actions with the workflow token: it rebuilds the baggage tag
-(and the star count stamped onto each project stamp) and falls back to the
-numbers already committed when the API is unavailable, so the workflow never
-fails because of a transient network error.
-"""
+from __future__ import annotations
 
 import json
 import os
-import re
 import urllib.error
 import urllib.request
 from datetime import datetime, timedelta, timezone
 
-from build_fun import ASSETS, build_stamps, build_tag
+from build_fun import PROJECTS, build_cinema_strips, build_radio, recover_committed_state
 
 LOGIN = "wangshen233"
-TAG = ASSETS / "journey-tag.svg"
-# The tag shows the owner's local day (UTC+8), not the runner's UTC day.
 HOME = timezone(timedelta(hours=8))
-
-# repository name -> stamp slug
-REPO_STAMPS = {
-    "upi-zero-link": "upi",
-    "turb-gpt-free-register-oss-20260928": "turb",
-    "codex-oauth-helper": "oauth",
-    "wangshen233.github.io": "web",
-}
+REPO_TO_SLUG = {proj["repo"]: proj["slug"] for proj in PROJECTS}
 
 
-def api(path, token):
+def api(path: str, token: str | None):
     headers = {"Accept": "application/vnd.github+json", "User-Agent": LOGIN}
     if token:
         headers["Authorization"] = f"Bearer {token}"
@@ -38,54 +24,49 @@ def api(path, token):
         return json.load(response)
 
 
-def previous():
-    """Recover the numbers from the tag that is already committed."""
-    if not TAG.exists():
-        return {}
-    text = TAG.read_text(encoding="utf-8")
-    found = {}
-    for key, pattern in (("repos", r"REPOS 仓库 · 件</text>\s*<text[^>]*>\s*([\d,]+)"),
-                         ("followers", r"FOLLOWERS 同行 · 人</text>\s*<text[^>]*>\s*([\d,]+)"),
-                         ("stars", r"STARS 星星 · 颗</text>\s*<text[^>]*>\s*([\d,]+)"),
-                         ("since", r"SINCE 出发</text>\s*<text[^>]*>\s*([\d.]+)")):
-        match = re.search(pattern, text)
-        if match:
-            found[key] = int(match.group(1)) if key != "since" else match.group(1)
-    return found
-
-
-def collect(token):
+def collect(token: str | None) -> tuple[dict, dict]:
     user = api(f"/users/{LOGIN}", token)
     repos = api(f"/users/{LOGIN}/repos?per_page=100&type=owner", token)
     created = user.get("created_at", "")
-    stars = {slug: 0 for slug in REPO_STAMPS.values()}
+
+    metrics = {proj["slug"]: {"stars": 0, "forks": 0} for proj in PROJECTS}
     for repo in repos:
-        slug = REPO_STAMPS.get(repo.get("name", ""))
+        slug = REPO_TO_SLUG.get(repo.get("name", ""))
         if slug:
-            stars[slug] = repo.get("stargazers_count", 0)
+            metrics[slug] = {
+                "stars": repo.get("stargazers_count", 0),
+                "forks": repo.get("forks_count", 0),
+            }
+
     stats = {
         "login": user.get("login", LOGIN),
         "name": user.get("name") or "日天",
         "repos": user.get("public_repos", 0),
         "followers": user.get("followers", 0),
         "stars": sum(repo.get("stargazers_count", 0) for repo in repos),
+        "forks": sum(repo.get("forks_count", 0) for repo in repos),
         "since": created[:7].replace("-", ".") or "2022.09",
-        "updated": datetime.now(HOME).date().isoformat(),
+        "updated": datetime.now(HOME).strftime("%Y.%m.%d"),
     }
-    return stats, stars
+    return stats, metrics
 
 
-def main():
+def main() -> None:
     token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+    saved_stats, saved_metrics = recover_committed_state()
     try:
-        stats, stars = collect(token)
+        stats, metrics = collect(token)
     except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, ValueError) as error:
-        print(f"GitHub API unavailable ({error}); keeping the committed numbers")
-        build_tag(previous())
+        print(f"GitHub API unavailable ({error}); keeping committed metrics")
+        build_radio(saved_stats)
+        build_cinema_strips(saved_metrics)
         return
-    print(f"Live numbers: {stats} · stamp stars {stars}")
-    build_tag({**previous(), **stats})
-    build_stamps(stars)
+
+    merged_stats = {**saved_stats, **stats}
+    merged_metrics = {slug: {**saved_metrics.get(slug, {}), **m} for slug, m in metrics.items()}
+    print(f"Live stats: {merged_stats} · project metrics: {merged_metrics}")
+    build_radio(merged_stats)
+    build_cinema_strips(merged_metrics)
 
 
 if __name__ == "__main__":

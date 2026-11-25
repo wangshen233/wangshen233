@@ -1,121 +1,85 @@
 <p align="center">
-  <img src="./assets/journey-cover.svg" width="100%" alt="无字海上列车：车厢轻晃、波动的海面、飞行纸鹤与夕阳微光" />
-</p>
-
-<a name="projects"></a>
-
-<p align="center">
-  <img src="./assets/journey-station.svg" width="100%" alt="日天的海上小站：下一站，开个新坑。小列车沿着 UPI、TURB、OAUTH、WEB 四个项目站点行驶" />
+  <img src="./assets/journey-cover.svg" width="100%" alt="千尋の海列車" />
 </p>
 
 <p align="center">
-  <a href="https://github.com/wangshen233/upi-zero-link" title="UPI 委托链接提取 · Python / 纯协议">UPI Zero Link ↗</a>　 · 　<a href="https://github.com/wangshen233/turb-gpt-free-register-oss-20260928" title="脱敏开源的自动化注册工具 · Python">Turb Register ↗</a><br />
-  <a href="https://github.com/wangshen233/codex-oauth-helper" title="OAuth 登录、令牌刷新与 CPA JSON 导出">Codex OAuth Helper ↗</a>　 · 　<a href="https://github.com/wangshen233/wangshen233.github.io" title="个人网页项目 · HTML">Personal Site ↗</a>
+  <samp>
+    「 好奇心の、その先へ。 」<br />
+    <a href="https://github.com/wangshen233?tab=repositories">repositories</a> ·
+    <a href="https://github.com/wangshen233/turb-register-public">turb-studio</a> ·
+    <a href="https://github.com/wangshen233/codex-oauth-helper">oauth-helper</a> ·
+    <a href="https://wangshen233.github.io">personal-site</a> ·
+    <a href="https://github.com/wangshen233/wangshen233/issues/new?title=%F0%9F%95%8A%EF%B8%8F+%E6%94%BE%E9%A3%9E%E7%BA%B8%E9%B9%A4&amp;body=%E5%86%99%E4%B8%8B%E4%B8%80%E5%8F%A5%E6%83%B3%E7%95%99%E5%9C%A8%E6%B5%B7%E9%9D%A2%E4%B8%8A%E7%9A%84%E8%AF%9D%EF%BC%8826%E5%AD%97%E4%BB%A5%E5%86%85%EF%BC%8C%E6%8F%90%E4%BA%A4%E5%90%8E%E7%BA%A610%E7%A7%92%E8%87%AA%E5%8A%A8%E6%B5%AE%E7%8E%B0%E5%9C%A8%E4%B8%BB%E9%A1%B5%E6%B5%B7%E9%9D%A2%E4%B8%8A%EF%BC%89%EF%BC%9A%0A%0A%E4%B9%98%E7%9D%80%E6%B5%B7%E9%A3%8E%E8%B7%AF%E8%BF%87%E6%AD%A4%E5%9C%B0%EF%BC%8C%E7%A5%9D%E4%BB%8A%E5%A4%A9%E4%B9%9F%E6%B2%A1%E6%9C%89+bug%EF%BC%81">send-a-paper-crane 🕊️</a>
+  </samp>
 </p>
+
+<br />
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="./assets/fm233-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/fm233-light.svg" /><img align="right" src="./assets/fm233-light.svg" width="45%" alt="FM 233.0 海列电台" /></picture>
+
+### 👋 嗨，我是 日天
+
+- 🔭 热衷于把复杂的 **协议逆向** 与 **自动化链路** 打磨成干净顺手的小工具
+- 🦀 日常主力 `Python` · `Rust` · `Go`，信奉「能走纯协议就绝不开浏览器」
+- 🌙 常年活跃在深夜车厢，写完最后一个 bug 就去吹海风
+- 📻 右边这台收音机每天自动同步最新仓库星标，常驻循环久石让
+
+<p>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/tech-stack-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/tech-stack-light.svg" /><img src="./assets/tech-stack-light.svg" width="52%" alt="Tech Stack: Python, Rust, Go, TypeScript, Node.js, Docker, SQLite, Linux" /></picture>
+</p>
+
+<br clear="both" />
+
+---
+
+<p align="center">
+  <a href="https://github.com/wangshen233/turb-gpt-free-register-oss-20260928" title="Turb Register"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/cinema-turb-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/cinema-turb-light.svg" /><img src="./assets/cinema-turb-light.svg" width="100%" alt="Turb Register" /></picture></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/wangshen233/sentinel-rs" title="Sentinel-rs"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/cinema-sentinel-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/cinema-sentinel-light.svg" /><img src="./assets/cinema-sentinel-light.svg" width="100%" alt="Sentinel-rs" /></picture></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/wangshen233/upi-zero-link" title="UPI Zero Link"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/cinema-upi-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/cinema-upi-light.svg" /><img src="./assets/cinema-upi-light.svg" width="100%" alt="UPI Zero Link" /></picture></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/wangshen233/appleservices-family-private" title="AppleServices Family"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/cinema-apple-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/cinema-apple-light.svg" /><img src="./assets/cinema-apple-light.svg" width="100%" alt="AppleServices Family" /></picture></a>
+</p>
+
+---
+
+<p align="center">
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/contributions-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/contributions-light.svg" /><img src="./assets/contributions-light.svg" width="100%" alt="海面上的脚印 · Contribution Snake" /></picture>
+</p>
+
+<p align="center">
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/paper-cranes-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/paper-cranes-light.svg" /><img src="./assets/paper-cranes-light.svg" width="100%" alt="海面漂流纸船 · Visitor Paper Boats" /></picture>
+</p>
+
+<p align="center">
+  <sub>
+    🕊️ <b>这片海面是活的</b> — <a href="https://github.com/wangshen233/wangshen233/issues/new?title=%F0%9F%95%8A%EF%B8%8F+%E6%94%BE%E9%A3%9E%E7%BA%B8%E9%B9%A4&amp;body=%E5%86%99%E4%B8%8B%E4%B8%80%E5%8F%A5%E6%83%B3%E7%95%99%E5%9C%A8%E6%B5%B7%E9%9D%A2%E4%B8%8A%E7%9A%84%E8%AF%9D%EF%BC%8826%E5%AD%97%E4%BB%A5%E5%86%85%EF%BC%8C%E6%8F%90%E4%BA%A4%E5%90%8E%E7%BA%A610%E7%A7%92%E8%87%AA%E5%8A%A8%E6%B5%AE%E7%8E%B0%E5%9C%A8%E4%B8%BB%E9%A1%B5%E6%B5%B7%E9%9D%A2%E4%B8%8A%EF%BC%89%EF%BC%9A%0A%0A%E4%B9%98%E7%9D%80%E6%B5%B7%E9%A3%8E%E8%B7%AF%E8%BF%87%E6%AD%A4%E5%9C%B0%EF%BC%8C%E7%A5%9D%E4%BB%8A%E5%A4%A9%E4%B9%9F%E6%B2%A1%E6%9C%89+bug%EF%BC%81"><b>点这里写一句话放飞纸船 ↗</b></a>，GitHub Actions 会在 10 秒内把你的 ID 与留言画进上方海面里漂流
+  </sub>
+</p>
+
+<br />
 
 <details>
-  <summary>这几站，都在折腾什么？</summary>
-
-  <br />
-
-  **[UPI Zero Link](https://github.com/wangshen233/upi-zero-link)** — 印度 ₹0 UPI 委托链接提取，纯协议实现，交付前核验结果。
-
-  **[Turb Register](https://github.com/wangshen233/turb-gpt-free-register-oss-20260928)** — 自动化注册工具的脱敏开源版本，把重复操作整理成流程。
-
-  **[Codex OAuth Helper](https://github.com/wangshen233/codex-oauth-helper)** — 独立 OAuth 登录、令牌刷新与 CPA JSON 导出工具。
-
-  **[Personal Site](https://github.com/wangshen233/wangshen233.github.io)** — 一个从简单 HTML 开始的个人网页项目。
-
-</details>
-
-<p align="center">
-  <img src="./assets/journey-board.svg" width="100%" alt="站台广播：233 次开往下一个坑正在检票，0 次开往早睡无限期晚点，404 次开往灵感车次取消，Git 号开往线上准点发车，还有一趟 233 夜班开往天亮" />
-</p>
-
-<details>
-  <summary>🐈 值班站长室（点开有猫）</summary>
-  <br />
-  <p align="center">
-    <img src="./assets/journey-cat.svg" width="380" alt="值班站长三花戴着红帽子和金铃铛，说话时会眨眼、打盹、眼里冒星星，她说：本站不查票，只查 bug。" />
-  </p>
-</details>
-
-<p align="center">
-  <sub>盖章打卡 · 每一站都算数</sub>
-</p>
-
-<p align="center">
-  <a href="https://github.com/wangshen233/upi-zero-link" title="UPI Zero Link"><img src="./assets/stamp-upi.svg" width="104" alt="UPI Zero Link 纪念印章" /></a>
-  <a href="https://github.com/wangshen233/turb-gpt-free-register-oss-20260928" title="Turb Register"><img src="./assets/stamp-turb.svg" width="104" alt="Turb Register 纪念印章" /></a>
-  <a href="https://github.com/wangshen233/codex-oauth-helper" title="Codex OAuth Helper"><img src="./assets/stamp-oauth.svg" width="104" alt="Codex OAuth Helper 纪念印章" /></a>
-  <a href="https://github.com/wangshen233/wangshen233.github.io" title="Personal Site"><img src="./assets/stamp-web.svg" width="104" alt="Personal Site 纪念印章" /></a>
-</p>
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/wangshen233/wangshen233/main/assets/contributions-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/wangshen233/wangshen233/main/assets/contributions-light.svg" />
-    <img src="./assets/contributions-light.svg" width="560" alt="每天留下的脚印：公开贡献记录的轨迹动画" />
-  </picture>
-</p>
-
-<details>
-  <summary>🧳 行李牌 &amp; 车票背面</summary>
-  <br />
-  <p align="center">
-    <img src="./assets/journey-tag.svg" width="100%" alt="行李牌：旅客日天，座位 233，2022 年 9 月出发；仓库、同行与星星的数字每天由 GitHub Actions 更新" />
-  </p>
-
-  **乘客须知**
-
-  - 车票长期有效，从 2022 年 9 月开始，没有终点站。
-  - 随身行李不限重，但请勿携带没解决的 bug 上车。
-  - 车厢内欢迎大声讨论灵感，禁止在凌晨三点之后发版。
-  - 座位 233 常年空着，路过就坐下。
-  - 深夜加班专列每晚 22:00 从 5 站台开行，天亮前收工。
-
-  **今天想坐哪趟车？**
-
-  - 想看手艺 → [四个项目都停在这里](https://github.com/wangshen233?tab=repositories)
-  - 想随便逛逛 → [去个人小站坐一会儿](https://wangshen233.github.io)
-  - 想留句话 → [在站台留言板写一行](https://github.com/wangshen233/upi-zero-link/issues)
-  - 想抄作业 → [fork 一节车厢带走](https://github.com/wangshen233?tab=repositories)
-
-  <sub>行李牌上的数字由 Actions 每天更新一次，晚点属于正常现象。</sub>
-</details>
-
-<details>
-  <summary>✦ 沿途收到的星星 · Star History</summary>
+  <summary>📈 <sub><b>沿途星光轨迹 · Star History</b></sub></summary>
   <br />
   <p align="center">
-    <a href="https://www.star-history.com/#wangshen233/upi-zero-link&amp;wangshen233/turb-gpt-free-register-oss-20260928&amp;wangshen233/codex-oauth-helper&amp;wangshen233/wangshen233.github.io&amp;Date" title="打开完整 Star History">
+    <a href="https://www.star-history.com/#wangshen233/turb-gpt-free-register-oss-20260928&amp;wangshen233/sentinel-rs&amp;wangshen233/upi-zero-link&amp;wangshen233/appleservices-family-private&amp;wangshen233/turb-register-public&amp;Date" title="查看完整 Star History">
       <picture>
-        <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=wangshen233/upi-zero-link,wangshen233/turb-gpt-free-register-oss-20260928,wangshen233/codex-oauth-helper,wangshen233/wangshen233.github.io&amp;type=Date&amp;theme=dark" />
-        <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=wangshen233/upi-zero-link,wangshen233/turb-gpt-free-register-oss-20260928,wangshen233/codex-oauth-helper,wangshen233/wangshen233.github.io&amp;type=Date" />
-        <img src="https://api.star-history.com/svg?repos=wangshen233/upi-zero-link,wangshen233/turb-gpt-free-register-oss-20260928,wangshen233/codex-oauth-helper,wangshen233/wangshen233.github.io&amp;type=Date" width="360" alt="四个公开项目的 Star History，点击查看完整交互图表" />
+        <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=wangshen233/turb-gpt-free-register-oss-20260928%2Cwangshen233/sentinel-rs%2Cwangshen233/upi-zero-link%2Cwangshen233/appleservices-family-private%2Cwangshen233/turb-register-public&amp;type=Date&amp;theme=dark" />
+        <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=wangshen233/turb-gpt-free-register-oss-20260928%2Cwangshen233/sentinel-rs%2Cwangshen233/upi-zero-link%2Cwangshen233/appleservices-family-private%2Cwangshen233/turb-register-public&amp;type=Date" />
+        <img src="https://api.star-history.com/svg?repos=wangshen233/turb-gpt-free-register-oss-20260928%2Cwangshen233/sentinel-rs%2Cwangshen233/upi-zero-link%2Cwangshen233/appleservices-family-private%2Cwangshen233/turb-register-public&amp;type=Date" width="88%" alt="Star History" />
       </picture>
     </a>
   </p>
 </details>
 
-<details>
-  <summary>🕳️ 别点这里</summary>
-  <br />
-
-  你点了。本站就一个彩蛋，一趟没有名字的夜车：
-
-  ```
-        ______
-       | 233 |
-  _____|_____|___________________
- |                               |
- |   下一个坑      ○ ○ ○ ○ ○     |
- |_______________________________|
-    ~    ~    ~    ~    ~    ~
-  ```
-
-  今日宜：写一行代码就睡觉。今日忌：在凌晨三点开新坑。
-
-</details>
-
-<p align="center"><sub><a href="https://github.com/wangshen233?tab=repositories">更多岔路 ↗</a>　 / 　<a href="https://github.com/wangshen233/upi-zero-link/issues">站台留言 ↗</a>　 / 　本站全天候供应咖啡</sub></p>
+<p align="center">
+  <sub><samp>旅は、つづく。 · Station 233</samp></sub>
+</p>
