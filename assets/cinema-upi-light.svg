@@ -51,8 +51,8 @@
     <text x="0" y="42" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="11.5" font-weight="700" fill="url(#sunsetText)" letter-spacing="1.2">03</text>
     <circle cx="34" cy="38" r="3.2" fill="#f27d65"/>
     <text x="44" y="42" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="11" fill="#69525c">Python</text>
-    <text x="108" y="42" data-stars="68" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="11" font-weight="600" fill="url(#sunsetText)">★ 68</text>
-    <text x="160" y="42" data-forks="61" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="11" fill="#9c848e">·  61 forks</text>
+    <text x="108" y="42" data-stars="69" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="11" font-weight="600" fill="url(#sunsetText)">★ 69</text>
+    <text x="160" y="42" data-forks="62" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="11" fill="#9c848e">·  62 forks</text>
 
     <text x="0" y="80" font-family="'Yu Mincho','Hiragino Mincho ProN','MS PMincho','Noto Serif JP','Noto Serif SC','Songti SC',Georgia,serif" font-size="24" font-weight="700" fill="#2b1e24" letter-spacing=".5">UPI Zero Link</text>
     <path d="M376 66L385 57M379 57H385V63" fill="none" stroke="#e85d88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

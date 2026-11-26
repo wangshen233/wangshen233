@@ -90,15 +90,15 @@
   <g transform="translate(164 122)">
               <rect width="50" height="50" rx="10" fill="#fff2f5" stroke="#f0dfe4" stroke-width="1"/>
               <text x="25" y="17" text-anchor="middle" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="8" fill="#9c848e" letter-spacing=".8">STARS</text>
-              <text x="25" y="39" data-stars="282" text-anchor="middle" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="14.5" font-weight="700" fill="url(#sunsetText)">282</text>
+              <text x="25" y="39" data-stars="283" text-anchor="middle" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="14.5" font-weight="700" fill="url(#sunsetText)">283</text>
             </g><g transform="translate(220 122)">
               <rect width="50" height="50" rx="10" fill="#fff2f5" stroke="#f0dfe4" stroke-width="1"/>
               <text x="25" y="17" text-anchor="middle" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="8" fill="#9c848e" letter-spacing=".8">FORKS</text>
-              <text x="25" y="39" data-forks="304" text-anchor="middle" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="14.5" font-weight="700" fill="#2b1e24">304</text>
+              <text x="25" y="39" data-forks="305" text-anchor="middle" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="14.5" font-weight="700" fill="#2b1e24">305</text>
             </g><g transform="translate(276 122)">
               <rect width="50" height="50" rx="10" fill="#fff2f5" stroke="#f0dfe4" stroke-width="1"/>
               <text x="25" y="17" text-anchor="middle" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="8" fill="#9c848e" letter-spacing=".8">PEERS</text>
-              <text x="25" y="39" data-followers="53" text-anchor="middle" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="14.5" font-weight="700" fill="#2b1e24">53</text>
+              <text x="25" y="39" data-followers="55" text-anchor="middle" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="14.5" font-weight="700" fill="#2b1e24">55</text>
             </g><g transform="translate(332 122)">
               <rect width="50" height="50" rx="10" fill="#fff2f5" stroke="#f0dfe4" stroke-width="1"/>
               <text x="25" y="17" text-anchor="middle" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="8" fill="#9c848e" letter-spacing=".8">REPOS</text>
