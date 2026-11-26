@@ -8,7 +8,13 @@ import urllib.error
 import urllib.request
 from datetime import datetime, timedelta, timezone
 
-from build_fun import PROJECTS, build_cinema_strips, build_radio, recover_committed_state
+from build_fun import (
+    PROJECTS,
+    build_cinema_strips,
+    build_galaxy_blackhole,
+    build_radio,
+    recover_committed_state,
+)
 
 LOGIN = "wangshen233"
 HOME = timezone(timedelta(hours=8))
@@ -58,6 +64,7 @@ def main() -> None:
         stats, metrics = collect(token)
     except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, ValueError) as error:
         print(f"GitHub API unavailable ({error}); keeping committed metrics")
+        build_galaxy_blackhole(saved_stats, saved_metrics)
         build_radio(saved_stats)
         build_cinema_strips(saved_metrics)
         return
@@ -65,6 +72,7 @@ def main() -> None:
     merged_stats = {**saved_stats, **stats}
     merged_metrics = {slug: {**saved_metrics.get(slug, {}), **m} for slug, m in metrics.items()}
     print(f"Live stats: {merged_stats} · project metrics: {merged_metrics}")
+    build_galaxy_blackhole(merged_stats, merged_metrics)
     build_radio(merged_stats)
     build_cinema_strips(merged_metrics)
 

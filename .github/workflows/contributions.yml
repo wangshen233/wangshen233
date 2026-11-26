@@ -42,6 +42,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add assets/contributions-light.svg assets/contributions-dark.svg \
+            assets/galaxy-blackhole-light.svg assets/galaxy-blackhole-dark.svg \
             assets/fm233-light.svg assets/fm233-dark.svg \
             assets/tech-stack-light.svg assets/tech-stack-dark.svg \
             assets/cinema-*-light.svg assets/cinema-*-dark.svg

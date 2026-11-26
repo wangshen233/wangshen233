@@ -1,0 +1,225 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="430" viewBox="0 0 880 430" role="img" aria-labelledby="bhTitle bhDesc">
+  <title id="bhTitle">Station 233 · 卡冈图雅引力透镜黑洞与 360° 银河星环剧场 (点击进入交互式 WebGL 小站)</title>
+  <desc id="bhDesc">Animated relativistic Gargantua black hole, 360-degree orbiting repository stations, precessing rosette slingshot paper boats, and 5D Event Horizon CLI terminal.</desc>
+  <defs>
+    <linearGradient id="spaceBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff8fa"/>
+      <stop offset=".52" stop-color="#f8e8f4"/>
+      <stop offset="1" stop-color="#ffe5d8"/>
+    </linearGradient>
+    <radialGradient id="coreNebula" cx=".34" cy=".5" r=".52">
+      <stop offset="0" stop-color="#ffb85c" stop-opacity=".38"/>
+      <stop offset=".42" stop-color="#ff5e8e" stop-opacity=".22"/>
+      <stop offset=".76" stop-color="#b85cff" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#b85cff" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Relativistic Doppler Beaming Gradient (Left Approaching White-Gold -> Right Receding Coral-Orchid) -->
+    <linearGradient id="dopplerDisk" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffd166" stop-opacity="0"/>
+      <stop offset=".16" stop-color="#ffe89e" stop-opacity=".92"/>
+      <stop offset=".34" stop-color="#fffdf2"/>
+      <stop offset=".52" stop-color="#ffbe55"/>
+      <stop offset=".74" stop-color="#ff5d85" stop-opacity=".92"/>
+      <stop offset=".90" stop-color="#cb80ff" stop-opacity=".68"/>
+      <stop offset="1" stop-color="#cb80ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="lensedArch" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fff8e3"/>
+      <stop offset=".45" stop-color="#ffc966"/>
+      <stop offset=".82" stop-color="#ff6b9d"/>
+      <stop offset="1" stop-color="#cb80ff"/>
+    </linearGradient>
+    <linearGradient id="ctaPill" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff6b9d"/>
+      <stop offset=".5" stop-color="#ff9a62"/>
+      <stop offset="1" stop-color="#ffd166"/>
+    </linearGradient>
+    <filter id="softBlur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+    <filter id="photonGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="4.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="stageClip"><rect width="880" height="430" rx="24"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#stageClip)">
+    <!-- Deep Velvet-Obsidian / Sakura-Pearl Cosmos (0% Dark Blue!) -->
+    <rect width="880" height="430" fill="url(#spaceBg)"/>
+    <rect width="880" height="430" fill="url(#coreNebula)"/>
+    <circle cx="44" cy="48" r="1.5" fill="#ffd166"><animate attributeName="opacity" values=".25;1;.25" dur="2.4s" begin="-0.00s" repeatCount="indefinite"/></circle><circle cx="118" cy="34" r="1.2" fill="#ff6b9d"><animate attributeName="opacity" values=".25;1;.25" dur="2.9s" begin="-0.35s" repeatCount="indefinite"/></circle><circle cx="198" cy="62" r="1.8" fill="#46e0b6"><animate attributeName="opacity" values=".25;1;.25" dur="3.4s" begin="-0.70s" repeatCount="indefinite"/></circle><circle cx="468" cy="44" r="1.4" fill="#cb80ff"><animate attributeName="opacity" values=".25;1;.25" dur="3.9s" begin="-1.05s" repeatCount="indefinite"/></circle><circle cx="532" cy="86" r="1.7" fill="#ffd166"><animate attributeName="opacity" values=".25;1;.25" dur="4.4s" begin="-1.40s" repeatCount="indefinite"/></circle><circle cx="66" cy="378" r="1.5" fill="#46e0b6"><animate attributeName="opacity" values=".25;1;.25" dur="2.4s" begin="-1.75s" repeatCount="indefinite"/></circle><circle cx="156" cy="396" r="1.3" fill="#cb80ff"><animate attributeName="opacity" values=".25;1;.25" dur="2.9s" begin="-2.10s" repeatCount="indefinite"/></circle><circle cx="442" cy="388" r="1.6" fill="#ff6b9d"><animate attributeName="opacity" values=".25;1;.25" dur="3.4s" begin="-2.45s" repeatCount="indefinite"/></circle><circle cx="542" cy="362" r="1.4" fill="#ffd166"><animate attributeName="opacity" values=".25;1;.25" dur="3.9s" begin="-2.80s" repeatCount="indefinite"/></circle><circle cx="84" cy="186" r="1.2" fill="#ffd166"><animate attributeName="opacity" values=".25;1;.25" dur="4.4s" begin="-3.15s" repeatCount="indefinite"/></circle><circle cx="516" cy="294" r="1.5" fill="#46e0b6"><animate attributeName="opacity" values=".25;1;.25" dur="2.4s" begin="-3.50s" repeatCount="indefinite"/></circle><circle cx="262" cy="398" r="1.3" fill="#ffd166"><animate attributeName="opacity" values=".25;1;.25" dur="2.9s" begin="-3.85s" repeatCount="indefinite"/></circle>
+
+    <!-- 1. Tilted 4-Arm Revolving Spiral Galaxy Disk -->
+    <g transform="translate(294 215) rotate(-8) scale(1 .38)">
+      <g>
+        <path d="M64.1 22.8L64.0 37.9L61.1 52.9L55.5 67.2L47.7 80.5L37.8 92.6L26.3 103.1L13.4 112.0L-0.7 119.2L-15.5 124.6L-30.9 128.3L-46.7 130.3L-62.7 130.5L-78.6 129.1L-94.4 126.2L-109.8 121.8L-124.9 116.0L-139.3 108.8L-153.2 100.5L-166.3 91.1L-178.7 80.6L-190.2 69.2L-200.9 56.9L-210.7 43.9L-219.5 30.3L-227.4 16.0L-234.4 1.2L-240.4 -14.0L-245.4 -29.5L-249.5 -45.4L-252.6 -61.4L-254.8 -77.7L-256.1 -94.0L-256.4 -110.5L-255.9 -126.9L-254.4 -143.3" fill="none" stroke="#ff6b9d" stroke-width="14" stroke-linecap="round" opacity=".18" filter="url(#softBlur)"/><path d="M64.1 22.8L64.0 37.9L61.1 52.9L55.5 67.2L47.7 80.5L37.8 92.6L26.3 103.1L13.4 112.0L-0.7 119.2L-15.5 124.6L-30.9 128.3L-46.7 130.3L-62.7 130.5L-78.6 129.1L-94.4 126.2L-109.8 121.8L-124.9 116.0L-139.3 108.8L-153.2 100.5L-166.3 91.1L-178.7 80.6L-190.2 69.2L-200.9 56.9L-210.7 43.9L-219.5 30.3L-227.4 16.0L-234.4 1.2L-240.4 -14.0L-245.4 -29.5L-249.5 -45.4L-252.6 -61.4L-254.8 -77.7L-256.1 -94.0L-256.4 -110.5L-255.9 -126.9L-254.4 -143.3" fill="none" stroke="#ff6b9d" stroke-width="2.2" stroke-dasharray="3 9" stroke-linecap="round" opacity=".42"/><path d="M-22.8 64.1L-37.9 64.0L-52.9 61.1L-67.2 55.5L-80.5 47.7L-92.6 37.8L-103.1 26.3L-112.0 13.4L-119.2 -0.7L-124.6 -15.5L-128.3 -30.9L-130.3 -46.7L-130.5 -62.7L-129.1 -78.6L-126.2 -94.4L-121.8 -109.8L-116.0 -124.9L-108.8 -139.3L-100.5 -153.2L-91.1 -166.3L-80.6 -178.7L-69.2 -190.2L-56.9 -200.9L-43.9 -210.7L-30.3 -219.5L-16.0 -227.4L-1.2 -234.4L14.0 -240.4L29.5 -245.4L45.4 -249.5L61.4 -252.6L77.7 -254.8L94.0 -256.1L110.5 -256.4L126.9 -255.9L143.3 -254.4" fill="none" stroke="#ffd166" stroke-width="14" stroke-linecap="round" opacity=".18" filter="url(#softBlur)"/><path d="M-22.8 64.1L-37.9 64.0L-52.9 61.1L-67.2 55.5L-80.5 47.7L-92.6 37.8L-103.1 26.3L-112.0 13.4L-119.2 -0.7L-124.6 -15.5L-128.3 -30.9L-130.3 -46.7L-130.5 -62.7L-129.1 -78.6L-126.2 -94.4L-121.8 -109.8L-116.0 -124.9L-108.8 -139.3L-100.5 -153.2L-91.1 -166.3L-80.6 -178.7L-69.2 -190.2L-56.9 -200.9L-43.9 -210.7L-30.3 -219.5L-16.0 -227.4L-1.2 -234.4L14.0 -240.4L29.5 -245.4L45.4 -249.5L61.4 -252.6L77.7 -254.8L94.0 -256.1L110.5 -256.4L126.9 -255.9L143.3 -254.4" fill="none" stroke="#ffd166" stroke-width="2.2" stroke-dasharray="3 9" stroke-linecap="round" opacity=".42"/><path d="M-64.1 -22.8L-64.0 -37.9L-61.1 -52.9L-55.5 -67.2L-47.7 -80.5L-37.8 -92.6L-26.3 -103.1L-13.4 -112.0L0.7 -119.2L15.5 -124.6L30.9 -128.3L46.7 -130.3L62.7 -130.5L78.6 -129.1L94.4 -126.2L109.8 -121.8L124.9 -116.0L139.3 -108.8L153.2 -100.5L166.3 -91.1L178.7 -80.6L190.2 -69.2L200.9 -56.9L210.7 -43.9L219.5 -30.3L227.4 -16.0L234.4 -1.2L240.4 14.0L245.4 29.5L249.5 45.4L252.6 61.4L254.8 77.7L256.1 94.0L256.4 110.5L255.9 126.9L254.4 143.3" fill="none" stroke="#cb80ff" stroke-width="14" stroke-linecap="round" opacity=".18" filter="url(#softBlur)"/><path d="M-64.1 -22.8L-64.0 -37.9L-61.1 -52.9L-55.5 -67.2L-47.7 -80.5L-37.8 -92.6L-26.3 -103.1L-13.4 -112.0L0.7 -119.2L15.5 -124.6L30.9 -128.3L46.7 -130.3L62.7 -130.5L78.6 -129.1L94.4 -126.2L109.8 -121.8L124.9 -116.0L139.3 -108.8L153.2 -100.5L166.3 -91.1L178.7 -80.6L190.2 -69.2L200.9 -56.9L210.7 -43.9L219.5 -30.3L227.4 -16.0L234.4 -1.2L240.4 14.0L245.4 29.5L249.5 45.4L252.6 61.4L254.8 77.7L256.1 94.0L256.4 110.5L255.9 126.9L254.4 143.3" fill="none" stroke="#cb80ff" stroke-width="2.2" stroke-dasharray="3 9" stroke-linecap="round" opacity=".42"/><path d="M22.8 -64.1L37.9 -64.0L52.9 -61.1L67.2 -55.5L80.5 -47.7L92.6 -37.8L103.1 -26.3L112.0 -13.4L119.2 0.7L124.6 15.5L128.3 30.9L130.3 46.7L130.5 62.7L129.1 78.6L126.2 94.4L121.8 109.8L116.0 124.9L108.8 139.3L100.5 153.2L91.1 166.3L80.6 178.7L69.2 190.2L56.9 200.9L43.9 210.7L30.3 219.5L16.0 227.4L1.2 234.4L-14.0 240.4L-29.5 245.4L-45.4 249.5L-61.4 252.6L-77.7 254.8L-94.0 256.1L-110.5 256.4L-126.9 255.9L-143.3 254.4" fill="none" stroke="#46e0b6" stroke-width="14" stroke-linecap="round" opacity=".18" filter="url(#softBlur)"/><path d="M22.8 -64.1L37.9 -64.0L52.9 -61.1L67.2 -55.5L80.5 -47.7L92.6 -37.8L103.1 -26.3L112.0 -13.4L119.2 0.7L124.6 15.5L128.3 30.9L130.3 46.7L130.5 62.7L129.1 78.6L126.2 94.4L121.8 109.8L116.0 124.9L108.8 139.3L100.5 153.2L91.1 166.3L80.6 178.7L69.2 190.2L56.9 200.9L43.9 210.7L30.3 219.5L16.0 227.4L1.2 234.4L-14.0 240.4L-29.5 245.4L-45.4 249.5L-61.4 252.6L-77.7 254.8L-94.0 256.1L-110.5 256.4L-126.9 255.9L-143.3 254.4" fill="none" stroke="#46e0b6" stroke-width="2.2" stroke-dasharray="3 9" stroke-linecap="round" opacity=".42"/>
+        <circle r="195" fill="none" stroke="#ffd166" stroke-width="1" stroke-dasharray="4 10" opacity=".32"/>
+        <circle r="245" fill="none" stroke="#cb80ff" stroke-width="1" stroke-dasharray="2 12" opacity=".28"/>
+        <animateTransform attributeName="transform" type="rotate" from="0" to="-360" dur="36s" repeatCount="indefinite"/>
+      </g>
+    </g>
+
+    <!-- 2. Gargantua Relativistic Black Hole (Upper & Lower Lensed Arches + Pitch-Black Event Horizon + Doppler Disk) -->
+    <g transform="translate(294 215) rotate(-8)">
+      <!-- Gravitationally Lensed Upper & Lower Light Arches (Back of Accretion Disk bent over & under!) -->
+      <ellipse cx="0" cy="-6" rx="88" ry="78" fill="none" stroke="url(#lensedArch)" stroke-width="14" opacity=".42" filter="url(#softBlur)"/>
+      <ellipse cx="0" cy="-5" rx="84" ry="74" fill="none" stroke="url(#lensedArch)" stroke-width="5.5" filter="url(#photonGlow)"/>
+      <ellipse cx="0" cy="6" rx="82" ry="70" fill="none" stroke="url(#lensedArch)" stroke-width="4.2" opacity=".85" filter="url(#photonGlow)"/>
+
+      <!-- Pure Abyssal Event Horizon Shadow Sphere -->
+      <circle r="66" fill="#060208"/>
+
+      <!-- Incandescent Relativistic Photon Ring -->
+      <circle r="67.5" fill="none" stroke="#fff5d6" stroke-width="2.2" filter="url(#photonGlow)">
+        <animate attributeName="stroke-opacity" values=".78;1;.78" dur="2.6s" repeatCount="indefinite"/>
+      </circle>
+      <circle r="63" fill="#040106"/>
+
+      <!-- Front Equatorial Swirling Doppler Accretion Disk Crossing in front of Event Horizon! -->
+      <ellipse cx="0" cy="11" rx="250" ry="26" fill="url(#dopplerDisk)" opacity=".45" filter="url(#softBlur)"/>
+      <ellipse cx="0" cy="11" rx="236" ry="17" fill="url(#dopplerDisk)"/>
+      <ellipse cx="-14" cy="10" rx="168" ry="8.5" fill="none" stroke="#fffdf2" stroke-width="2.2" stroke-dasharray="46 18" opacity=".88">
+        <animate attributeName="stroke-dashoffset" from="0" to="-128" dur="2.4s" repeatCount="indefinite"/>
+      </ellipse>
+      <ellipse cx="8" cy="13" rx="204" ry="12" fill="none" stroke="#ff6b9d" stroke-width="1.5" stroke-dasharray="32 22" opacity=".72">
+        <animate attributeName="stroke-dashoffset" from="0" to="-108" dur="3.1s" repeatCount="indefinite"/>
+      </ellipse>
+    </g>
+
+    <!-- 3. Relativistic Precessing Rosette & Gravitational Slingshot Paper-Boat Orbits -->
+    <path d="M379.7 202.9L380.0 209.0L379.0 215.2L376.9 221.5L373.5 227.7L369.0 233.9L363.3 239.8L356.5 245.6L348.6 251.0L339.8 256.1L329.9 260.8L319.2 264.9L307.8 268.4L295.6 271.3L282.8 273.5L269.7 274.9L256.2 275.4L242.7 275.0L229.2 273.6L215.9 271.2L203.2 267.8L191.2 263.2L180.1 257.6L170.3 250.9L162.1 243.2L155.6 234.5L151.2 224.9L149.1 214.6L149.5 203.7L152.6 192.4L158.5 180.9L167.2 169.5L178.7 158.6L192.8 148.3L209.3 138.9L227.9 130.8L248.1 124.2L269.4 119.3L291.2 116.2L313.0 115.1L334.3 115.8L354.3 118.5L372.8 122.9L389.2 128.9L403.3 136.3L414.8 144.8L423.7 154.2L429.8 164.2L433.2 174.6L434.0 185.1L432.4 195.5L428.6 205.6L422.8 215.4L415.2 224.5L406.2 232.9L395.9 240.6L384.6 247.5L372.5 253.4L359.9 258.5L347.0 262.6L333.9 265.8L320.9 268.1L308.0 269.6L295.6 270.2L283.5 269.9L272.1 268.9L261.4 267.2L251.4 264.7L242.4 261.7L234.3 258.0L227.2 253.8L221.1 249.2L216.2 244.1L212.4 238.7L209.7 233.0L208.3 227.1L208.0 221.0L209.0 214.8L211.1 208.5L214.5 202.3L219.0 196.1L224.7 190.2L231.5 184.4L239.4 179.0L248.2 173.9L258.1 169.2L268.8 165.1L280.2 161.6L292.4 158.7L305.2 156.5L318.3 155.1L331.8 154.6L345.3 155.0L358.8 156.4L372.1 158.8L384.8 162.2L396.8 166.8L407.9 172.4L417.7 179.1L425.9 186.8L432.4 195.5L436.8 205.1L438.9 215.4L438.5 226.3L435.4 237.6L429.5 249.1L420.8 260.5L409.3 271.4L395.2 281.7L378.7 291.1L360.1 299.2L339.9 305.8L318.6 310.7L296.8 313.8L275.0 314.9L253.7 314.2L233.7 311.5L215.2 307.1L198.8 301.1L184.7 293.7L173.2 285.2L164.3 275.8L158.2 265.8L154.8 255.4L154.0 244.9L155.6 234.5L159.4 224.4L165.2 214.6L172.8 205.5L181.8 197.1L192.1 189.4L203.4 182.5L215.5 176.6L228.1 171.5L241.0 167.4L254.1 164.2L267.1 161.9L280.0 160.4L292.4 159.8L304.5 160.1L315.9 161.1L326.6 162.8L336.6 165.3L345.6 168.3L353.7 172.0L360.8 176.2L366.9 180.8L371.8 185.9L375.6 191.3L378.3 197.0L379.7 202.9Z" fill="none" stroke="#46e0b6" stroke-width="1.25" stroke-dasharray="5 5" opacity=".46"/>
+    <path d="M 24 348 Q 206 307 222 161 Q 246 87 568 42" fill="none" stroke="#ffd166" stroke-width="1.35" stroke-dasharray="6 5" opacity=".52"/>
+
+    <!-- Emerald-Jade Origami Boat tracing Precessing Rosette Orbit! -->
+    <g filter="url(#photonGlow)">
+      <polygon points="9,0 -6,-5 -3,0 -6,5" fill="#e4fbf3" stroke="#46e0b6" stroke-width="1.2"/>
+      <animateMotion path="M379.7 202.9L380.0 209.0L379.0 215.2L376.9 221.5L373.5 227.7L369.0 233.9L363.3 239.8L356.5 245.6L348.6 251.0L339.8 256.1L329.9 260.8L319.2 264.9L307.8 268.4L295.6 271.3L282.8 273.5L269.7 274.9L256.2 275.4L242.7 275.0L229.2 273.6L215.9 271.2L203.2 267.8L191.2 263.2L180.1 257.6L170.3 250.9L162.1 243.2L155.6 234.5L151.2 224.9L149.1 214.6L149.5 203.7L152.6 192.4L158.5 180.9L167.2 169.5L178.7 158.6L192.8 148.3L209.3 138.9L227.9 130.8L248.1 124.2L269.4 119.3L291.2 116.2L313.0 115.1L334.3 115.8L354.3 118.5L372.8 122.9L389.2 128.9L403.3 136.3L414.8 144.8L423.7 154.2L429.8 164.2L433.2 174.6L434.0 185.1L432.4 195.5L428.6 205.6L422.8 215.4L415.2 224.5L406.2 232.9L395.9 240.6L384.6 247.5L372.5 253.4L359.9 258.5L347.0 262.6L333.9 265.8L320.9 268.1L308.0 269.6L295.6 270.2L283.5 269.9L272.1 268.9L261.4 267.2L251.4 264.7L242.4 261.7L234.3 258.0L227.2 253.8L221.1 249.2L216.2 244.1L212.4 238.7L209.7 233.0L208.3 227.1L208.0 221.0L209.0 214.8L211.1 208.5L214.5 202.3L219.0 196.1L224.7 190.2L231.5 184.4L239.4 179.0L248.2 173.9L258.1 169.2L268.8 165.1L280.2 161.6L292.4 158.7L305.2 156.5L318.3 155.1L331.8 154.6L345.3 155.0L358.8 156.4L372.1 158.8L384.8 162.2L396.8 166.8L407.9 172.4L417.7 179.1L425.9 186.8L432.4 195.5L436.8 205.1L438.9 215.4L438.5 226.3L435.4 237.6L429.5 249.1L420.8 260.5L409.3 271.4L395.2 281.7L378.7 291.1L360.1 299.2L339.9 305.8L318.6 310.7L296.8 313.8L275.0 314.9L253.7 314.2L233.7 311.5L215.2 307.1L198.8 301.1L184.7 293.7L173.2 285.2L164.3 275.8L158.2 265.8L154.8 255.4L154.0 244.9L155.6 234.5L159.4 224.4L165.2 214.6L172.8 205.5L181.8 197.1L192.1 189.4L203.4 182.5L215.5 176.6L228.1 171.5L241.0 167.4L254.1 164.2L267.1 161.9L280.0 160.4L292.4 159.8L304.5 160.1L315.9 161.1L326.6 162.8L336.6 165.3L345.6 168.3L353.7 172.0L360.8 176.2L366.9 180.8L371.8 185.9L375.6 191.3L378.3 197.0L379.7 202.9Z" dur="11s" rotate="auto" repeatCount="indefinite"/>
+    </g>
+
+    <!-- Honey-Gold Origami Boat executing High-Speed Photon-Sphere Slingshot! -->
+    <g filter="url(#photonGlow)">
+      <polygon points="10,0 -7,-5.5 -3.5,0 -7,5.5" fill="#fff6dc" stroke="#ffd166" stroke-width="1.2"/>
+      <animateMotion path="M 24 348 Q 206 307 222 161 Q 246 87 568 42" dur="4.6s" rotate="auto" repeatCount="indefinite"/>
+    </g>
+
+    <!-- 4. Tilted 360° Galactic Station Ring Track & 5 Live Orbiting Station Capsules -->
+    <path d="M537.6 180.7L537.9 186.8L537.2 193.1L535.5 199.5L532.7 205.9L528.9 212.4L524.1 218.9L518.3 225.4L511.5 231.8L503.8 238.2L495.2 244.4L485.8 250.6L475.5 256.5L464.5 262.3L452.7 267.9L440.2 273.3L427.2 278.4L413.5 283.3L399.3 287.9L384.7 292.1L369.7 296.0L354.4 299.6L338.8 302.8L323.0 305.6L307.1 308.1L291.2 310.1L275.2 311.8L259.3 313.0L243.6 313.8L228.1 314.2L212.9 314.1L198.0 313.7L183.6 312.8L169.6 311.5L156.1 309.7L143.2 307.6L131.0 305.1L119.5 302.2L108.7 298.9L98.7 295.3L89.6 291.3L81.3 287.0L74.0 282.3L67.6 277.4L62.1 272.2L57.6 266.8L54.2 261.2L51.8 255.3L50.4 249.3L50.1 243.2L50.8 236.9L52.5 230.5L55.3 224.1L59.1 217.6L63.9 211.1L69.7 204.6L76.5 198.2L84.2 191.8L92.8 185.6L102.2 179.4L112.5 173.5L123.5 167.7L135.3 162.1L147.8 156.7L160.8 151.6L174.5 146.7L188.7 142.1L203.3 137.9L218.3 134.0L233.6 130.4L249.2 127.2L265.0 124.4L280.9 121.9L296.8 119.9L312.8 118.2L328.7 117.0L344.4 116.2L359.9 115.8L375.1 115.9L390.0 116.3L404.4 117.2L418.4 118.5L431.9 120.3L444.8 122.4L457.0 124.9L468.5 127.8L479.3 131.1L489.3 134.7L498.4 138.7L506.7 143.0L514.0 147.7L520.4 152.6L525.9 157.8L530.4 163.2L533.8 168.8L536.2 174.7L537.6 180.7Z" fill="none" stroke="#ffd166" stroke-width="1.1" stroke-dasharray="7 7" opacity=".32"/>
+    <g>
+              <g transform="translate(-54 -13)">
+                <rect width="108" height="25" rx="12.5" fill="#ffffff" fill-opacity=".9" stroke="#ff6b9d" stroke-width="1.3"/>
+                <circle cx="12" cy="12.5" r="3.6" fill="#ff6b9d"/>
+                <text x="20" y="16" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="8.5" font-weight="700" fill="#2a1b23">00 運転室</text>
+                <text x="98" y="16" text-anchor="end" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="8.2" font-weight="700" fill="#ff6b9d">FM 233</text>
+              </g>
+              <animateMotion path="M537.6 180.7L537.9 186.8L537.2 193.1L535.5 199.5L532.7 205.9L528.9 212.4L524.1 218.9L518.3 225.4L511.5 231.8L503.8 238.2L495.2 244.4L485.8 250.6L475.5 256.5L464.5 262.3L452.7 267.9L440.2 273.3L427.2 278.4L413.5 283.3L399.3 287.9L384.7 292.1L369.7 296.0L354.4 299.6L338.8 302.8L323.0 305.6L307.1 308.1L291.2 310.1L275.2 311.8L259.3 313.0L243.6 313.8L228.1 314.2L212.9 314.1L198.0 313.7L183.6 312.8L169.6 311.5L156.1 309.7L143.2 307.6L131.0 305.1L119.5 302.2L108.7 298.9L98.7 295.3L89.6 291.3L81.3 287.0L74.0 282.3L67.6 277.4L62.1 272.2L57.6 266.8L54.2 261.2L51.8 255.3L50.4 249.3L50.1 243.2L50.8 236.9L52.5 230.5L55.3 224.1L59.1 217.6L63.9 211.1L69.7 204.6L76.5 198.2L84.2 191.8L92.8 185.6L102.2 179.4L112.5 173.5L123.5 167.7L135.3 162.1L147.8 156.7L160.8 151.6L174.5 146.7L188.7 142.1L203.3 137.9L218.3 134.0L233.6 130.4L249.2 127.2L265.0 124.4L280.9 121.9L296.8 119.9L312.8 118.2L328.7 117.0L344.4 116.2L359.9 115.8L375.1 115.9L390.0 116.3L404.4 117.2L418.4 118.5L431.9 120.3L444.8 122.4L457.0 124.9L468.5 127.8L479.3 131.1L489.3 134.7L498.4 138.7L506.7 143.0L514.0 147.7L520.4 152.6L525.9 157.8L530.4 163.2L533.8 168.8L536.2 174.7L537.6 180.7Z" dur="24s" begin="-0.0s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values=".52;1;.95;.42;.52" keyTimes="0;.25;.5;.78;1" dur="24s" begin="-0.0s" repeatCount="indefinite"/>
+            </g><g>
+              <g transform="translate(-54 -13)">
+                <rect width="108" height="25" rx="12.5" fill="#ffffff" fill-opacity=".9" stroke="#ffb347" stroke-width="1.3"/>
+                <circle cx="12" cy="12.5" r="3.6" fill="#ffb347"/>
+                <text x="20" y="16" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="8.5" font-weight="700" fill="#2a1b23">01 TURB</text>
+                <text x="98" y="16" text-anchor="end" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="8.2" font-weight="700" fill="#ffb347">★95</text>
+              </g>
+              <animateMotion path="M537.6 180.7L537.9 186.8L537.2 193.1L535.5 199.5L532.7 205.9L528.9 212.4L524.1 218.9L518.3 225.4L511.5 231.8L503.8 238.2L495.2 244.4L485.8 250.6L475.5 256.5L464.5 262.3L452.7 267.9L440.2 273.3L427.2 278.4L413.5 283.3L399.3 287.9L384.7 292.1L369.7 296.0L354.4 299.6L338.8 302.8L323.0 305.6L307.1 308.1L291.2 310.1L275.2 311.8L259.3 313.0L243.6 313.8L228.1 314.2L212.9 314.1L198.0 313.7L183.6 312.8L169.6 311.5L156.1 309.7L143.2 307.6L131.0 305.1L119.5 302.2L108.7 298.9L98.7 295.3L89.6 291.3L81.3 287.0L74.0 282.3L67.6 277.4L62.1 272.2L57.6 266.8L54.2 261.2L51.8 255.3L50.4 249.3L50.1 243.2L50.8 236.9L52.5 230.5L55.3 224.1L59.1 217.6L63.9 211.1L69.7 204.6L76.5 198.2L84.2 191.8L92.8 185.6L102.2 179.4L112.5 173.5L123.5 167.7L135.3 162.1L147.8 156.7L160.8 151.6L174.5 146.7L188.7 142.1L203.3 137.9L218.3 134.0L233.6 130.4L249.2 127.2L265.0 124.4L280.9 121.9L296.8 119.9L312.8 118.2L328.7 117.0L344.4 116.2L359.9 115.8L375.1 115.9L390.0 116.3L404.4 117.2L418.4 118.5L431.9 120.3L444.8 122.4L457.0 124.9L468.5 127.8L479.3 131.1L489.3 134.7L498.4 138.7L506.7 143.0L514.0 147.7L520.4 152.6L525.9 157.8L530.4 163.2L533.8 168.8L536.2 174.7L537.6 180.7Z" dur="24s" begin="-4.8s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values=".52;1;.95;.42;.52" keyTimes="0;.25;.5;.78;1" dur="24s" begin="-4.8s" repeatCount="indefinite"/>
+            </g><g>
+              <g transform="translate(-54 -13)">
+                <rect width="108" height="25" rx="12.5" fill="#ffffff" fill-opacity=".9" stroke="#cb80ff" stroke-width="1.3"/>
+                <circle cx="12" cy="12.5" r="3.6" fill="#cb80ff"/>
+                <text x="20" y="16" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="8.5" font-weight="700" fill="#2a1b23">02 SENTINEL</text>
+                <text x="98" y="16" text-anchor="end" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="8.2" font-weight="700" fill="#cb80ff">★14</text>
+              </g>
+              <animateMotion path="M537.6 180.7L537.9 186.8L537.2 193.1L535.5 199.5L532.7 205.9L528.9 212.4L524.1 218.9L518.3 225.4L511.5 231.8L503.8 238.2L495.2 244.4L485.8 250.6L475.5 256.5L464.5 262.3L452.7 267.9L440.2 273.3L427.2 278.4L413.5 283.3L399.3 287.9L384.7 292.1L369.7 296.0L354.4 299.6L338.8 302.8L323.0 305.6L307.1 308.1L291.2 310.1L275.2 311.8L259.3 313.0L243.6 313.8L228.1 314.2L212.9 314.1L198.0 313.7L183.6 312.8L169.6 311.5L156.1 309.7L143.2 307.6L131.0 305.1L119.5 302.2L108.7 298.9L98.7 295.3L89.6 291.3L81.3 287.0L74.0 282.3L67.6 277.4L62.1 272.2L57.6 266.8L54.2 261.2L51.8 255.3L50.4 249.3L50.1 243.2L50.8 236.9L52.5 230.5L55.3 224.1L59.1 217.6L63.9 211.1L69.7 204.6L76.5 198.2L84.2 191.8L92.8 185.6L102.2 179.4L112.5 173.5L123.5 167.7L135.3 162.1L147.8 156.7L160.8 151.6L174.5 146.7L188.7 142.1L203.3 137.9L218.3 134.0L233.6 130.4L249.2 127.2L265.0 124.4L280.9 121.9L296.8 119.9L312.8 118.2L328.7 117.0L344.4 116.2L359.9 115.8L375.1 115.9L390.0 116.3L404.4 117.2L418.4 118.5L431.9 120.3L444.8 122.4L457.0 124.9L468.5 127.8L479.3 131.1L489.3 134.7L498.4 138.7L506.7 143.0L514.0 147.7L520.4 152.6L525.9 157.8L530.4 163.2L533.8 168.8L536.2 174.7L537.6 180.7Z" dur="24s" begin="-9.6s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values=".52;1;.95;.42;.52" keyTimes="0;.25;.5;.78;1" dur="24s" begin="-9.6s" repeatCount="indefinite"/>
+            </g><g>
+              <g transform="translate(-54 -13)">
+                <rect width="108" height="25" rx="12.5" fill="#ffffff" fill-opacity=".9" stroke="#46e0b6" stroke-width="1.3"/>
+                <circle cx="12" cy="12.5" r="3.6" fill="#46e0b6"/>
+                <text x="20" y="16" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="8.5" font-weight="700" fill="#2a1b23">03 UPI</text>
+                <text x="98" y="16" text-anchor="end" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="8.2" font-weight="700" fill="#46e0b6">★69</text>
+              </g>
+              <animateMotion path="M537.6 180.7L537.9 186.8L537.2 193.1L535.5 199.5L532.7 205.9L528.9 212.4L524.1 218.9L518.3 225.4L511.5 231.8L503.8 238.2L495.2 244.4L485.8 250.6L475.5 256.5L464.5 262.3L452.7 267.9L440.2 273.3L427.2 278.4L413.5 283.3L399.3 287.9L384.7 292.1L369.7 296.0L354.4 299.6L338.8 302.8L323.0 305.6L307.1 308.1L291.2 310.1L275.2 311.8L259.3 313.0L243.6 313.8L228.1 314.2L212.9 314.1L198.0 313.7L183.6 312.8L169.6 311.5L156.1 309.7L143.2 307.6L131.0 305.1L119.5 302.2L108.7 298.9L98.7 295.3L89.6 291.3L81.3 287.0L74.0 282.3L67.6 277.4L62.1 272.2L57.6 266.8L54.2 261.2L51.8 255.3L50.4 249.3L50.1 243.2L50.8 236.9L52.5 230.5L55.3 224.1L59.1 217.6L63.9 211.1L69.7 204.6L76.5 198.2L84.2 191.8L92.8 185.6L102.2 179.4L112.5 173.5L123.5 167.7L135.3 162.1L147.8 156.7L160.8 151.6L174.5 146.7L188.7 142.1L203.3 137.9L218.3 134.0L233.6 130.4L249.2 127.2L265.0 124.4L280.9 121.9L296.8 119.9L312.8 118.2L328.7 117.0L344.4 116.2L359.9 115.8L375.1 115.9L390.0 116.3L404.4 117.2L418.4 118.5L431.9 120.3L444.8 122.4L457.0 124.9L468.5 127.8L479.3 131.1L489.3 134.7L498.4 138.7L506.7 143.0L514.0 147.7L520.4 152.6L525.9 157.8L530.4 163.2L533.8 168.8L536.2 174.7L537.6 180.7Z" dur="24s" begin="-14.4s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values=".52;1;.95;.42;.52" keyTimes="0;.25;.5;.78;1" dur="24s" begin="-14.4s" repeatCount="indefinite"/>
+            </g><g>
+              <g transform="translate(-54 -13)">
+                <rect width="108" height="25" rx="12.5" fill="#ffffff" fill-opacity=".9" stroke="#ff686b" stroke-width="1.3"/>
+                <circle cx="12" cy="12.5" r="3.6" fill="#ff686b"/>
+                <text x="20" y="16" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="8.5" font-weight="700" fill="#2a1b23">04 APPLE</text>
+                <text x="98" y="16" text-anchor="end" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="8.2" font-weight="700" fill="#ff686b">★89</text>
+              </g>
+              <animateMotion path="M537.6 180.7L537.9 186.8L537.2 193.1L535.5 199.5L532.7 205.9L528.9 212.4L524.1 218.9L518.3 225.4L511.5 231.8L503.8 238.2L495.2 244.4L485.8 250.6L475.5 256.5L464.5 262.3L452.7 267.9L440.2 273.3L427.2 278.4L413.5 283.3L399.3 287.9L384.7 292.1L369.7 296.0L354.4 299.6L338.8 302.8L323.0 305.6L307.1 308.1L291.2 310.1L275.2 311.8L259.3 313.0L243.6 313.8L228.1 314.2L212.9 314.1L198.0 313.7L183.6 312.8L169.6 311.5L156.1 309.7L143.2 307.6L131.0 305.1L119.5 302.2L108.7 298.9L98.7 295.3L89.6 291.3L81.3 287.0L74.0 282.3L67.6 277.4L62.1 272.2L57.6 266.8L54.2 261.2L51.8 255.3L50.4 249.3L50.1 243.2L50.8 236.9L52.5 230.5L55.3 224.1L59.1 217.6L63.9 211.1L69.7 204.6L76.5 198.2L84.2 191.8L92.8 185.6L102.2 179.4L112.5 173.5L123.5 167.7L135.3 162.1L147.8 156.7L160.8 151.6L174.5 146.7L188.7 142.1L203.3 137.9L218.3 134.0L233.6 130.4L249.2 127.2L265.0 124.4L280.9 121.9L296.8 119.9L312.8 118.2L328.7 117.0L344.4 116.2L359.9 115.8L375.1 115.9L390.0 116.3L404.4 117.2L418.4 118.5L431.9 120.3L444.8 122.4L457.0 124.9L468.5 127.8L479.3 131.1L489.3 134.7L498.4 138.7L506.7 143.0L514.0 147.7L520.4 152.6L525.9 157.8L530.4 163.2L533.8 168.8L536.2 174.7L537.6 180.7Z" dur="24s" begin="-19.2s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values=".52;1;.95;.42;.52" keyTimes="0;.25;.5;.78;1" dur="24s" begin="-19.2s" repeatCount="indefinite"/>
+            </g>
+
+    <!-- Top-Left Galaxy Telemetry Badge -->
+    <g transform="translate(22 20)">
+      <rect width="256" height="26" rx="13" fill="#231320" fill-opacity=".82" stroke="#ffd166" stroke-width="1" stroke-opacity=".45"/>
+      <circle cx="14" cy="13" r="4" fill="#46e0b6">
+        <animate attributeName="opacity" values="1;.3;1" dur="1.8s" repeatCount="indefinite"/>
+      </circle>
+      <text x="25" y="17" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="9.5" font-weight="700" fill="#ffd166">GARGANTUA · 360° GALAXY RING</text>
+    </g>
+
+    <!-- Bottom-Left Slingshot Lab Telemetry Tag -->
+    <g transform="translate(22 384)">
+      <rect width="328" height="26" rx="13" fill="#231320" fill-opacity=".82" stroke="#46e0b6" stroke-width="1" stroke-opacity=".45"/>
+      <text x="14" y="17" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="9.5" fill="#46e0b6">🛰️ SLINGSHOT LAB · 玫瑰进动轨道 &amp; +64% Δv 弹弓加速演示中</text>
+    </g>
+
+    <!-- 5. Right Wing: Embedded 5D Event Horizon Geek Terminal (wangshen233@horizon:~$) -->
+    <g transform="translate(576 22)">
+      <rect width="284" height="386" rx="18" fill="#231320" fill-opacity=".94" stroke="#ffd166" stroke-width="1.3" stroke-opacity=".55"/>
+      <!-- Titlebar -->
+      <path d="M0 18 A18 18 0 0 1 18 0 H266 A18 18 0 0 1 284 18 V34 H0 Z" fill="#2b1627"/>
+      <circle cx="16" cy="17" r="4.2" fill="#ff6b9d"/>
+      <circle cx="30" cy="17" r="4.2" fill="#ffd166"/>
+      <circle cx="44" cy="17" r="4.2" fill="#46e0b6"/>
+      <text x="58" y="20.5" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="9.2" fill="#e6ccd7">wangshen233@horizon:~ (5D CLI)</text>
+
+      <!-- Terminal Live-Revealing Execution Trace -->
+      <g transform="translate(15 52)" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="9.6">
+        <text y="0" fill="#46e0b6" font-weight="700">$ whoami --protocol</text>
+        <text y="18" fill="#fef4f8">OPERATOR : 日天 (@wangshen233)</text>
+        <text y="34" fill="#dbc1cd">ARSENAL  : Python · Rust · Go</text>
+        <text y="50" fill="#ffd166">METRICS  : ★ 284 Stars · ⑂ 306 Forks</text>
+        <text y="66" fill="#cb80ff">BROWSER  : 0 instances (Pure Socket)</text>
+
+        <line x1="0" y1="80" x2="254" y2="80" stroke="#523046" stroke-width="1" stroke-dasharray="3 3"/>
+
+        <text y="98" fill="#46e0b6" font-weight="700">$ sentinel-vm --trace</text>
+        <g>
+          <text y="116" fill="#ffd166">[0x01] OP_INIT_CTX     heap=1.6MB</text>
+          <animate attributeName="opacity" values=".35;1;1;.35" keyTimes="0;.15;.85;1" dur="6s" repeatCount="indefinite"/>
+        </g>
+        <g>
+          <text y="133" fill="#cb80ff">[0x13] OP_XOR_ROTATE   r0^=rotl(17)</text>
+          <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.22;.35;.85;1" dur="6s" repeatCount="indefinite"/>
+        </g>
+        <g>
+          <text y="150" fill="#46e0b6">[0x21] OP_TLS_JA4_BIND h2_alpn_ok</text>
+          <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.42;.55;.85;1" dur="6s" repeatCount="indefinite"/>
+        </g>
+        <g>
+          <text y="167" fill="#ff6b9d" font-weight="700">[0x24] ✓ Token OK in 0.19ms!</text>
+          <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.60;.72;.90;1" dur="6s" repeatCount="indefinite"/>
+        </g>
+
+        <line x1="0" y1="183" x2="254" y2="183" stroke="#523046" stroke-width="1" stroke-dasharray="3 3"/>
+
+        <text y="202" fill="#46e0b6" font-weight="700">$ open https://wangshen233.github.io</text>
+        <text y="220" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans','Microsoft YaHei',sans-serif" font-size="10.5" fill="#dbc1cd">支持鼠标滚轮 360° 旋转真 WebGL 黑洞星环、</text>
+        <text y="237" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans','Microsoft YaHei',sans-serif" font-size="10.5" fill="#dbc1cd">亲手拖拽发射引力弹弓纸船 &amp; 交互终端：</text>
+
+        <!-- Glowing Launch Portal Button -->
+        <g transform="translate(0 254)">
+          <rect width="254" height="38" rx="19" fill="url(#ctaPill)"/>
+          <text x="127" y="23.5" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans','Microsoft YaHei',sans-serif" font-size="12" font-weight="700" fill="#1b0e16">🕳️ 点击潜入交互式黑洞星环站 ↗</text>
+        </g>
+
+        <text y="314" fill="#9e818f" font-size="8.8">wangshen233@horizon:~$ <tspan fill="#46e0b6">▋</tspan></text>
+      </g>
+    </g>
+  </g>
+  <rect x=".75" y=".75" width="878.5" height="428.5" rx="23.25" fill="none" stroke="url(#lensedArch)" stroke-width="1.4" stroke-opacity=".55"/>
+</svg>

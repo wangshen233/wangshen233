@@ -30,6 +30,22 @@
 
 <br clear="both" />
 
+<p align="center">
+  <a href="https://wangshen233.github.io" title="点击进入 Station 233 交互式 WebGL 引力透镜黑洞星环、五维视界终端与引力弹弓纸船实验室">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./assets/galaxy-blackhole-dark.svg" />
+      <source media="(prefers-color-scheme: light)" srcset="./assets/galaxy-blackhole-light.svg" />
+      <img src="./assets/galaxy-blackhole-dark.svg" width="100%" alt="Station 233 · 卡冈图雅引力透镜黑洞与 360° 银河星环剧场" />
+    </picture>
+  </a>
+</p>
+
+<p align="center">
+  <sub>
+    🕳️ <b>上方黑洞星环支持全交互</b> — 点任意位置直达 <a href="https://wangshen233.github.io"><b>wangshen233.github.io ↗</b></a> 滚轮操控 360° 银河星环、点击视界中心运行 <code>Sentinel</code> 五维终端，或亲手拖拽发射相对论引力弹弓折纸船
+  </sub>
+</p>
+
 ---
 
 <p align="center">
