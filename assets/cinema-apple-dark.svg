@@ -39,7 +39,7 @@
 
     <text x="64" y="34" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="10.5" font-weight="600" fill="#ff5e6c">Go · Workflow</text>
     <text x="206" y="34" data-stars="89" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="10.8" font-weight="700" fill="#ffc966">★ 89</text>
-    <text x="256" y="34" data-forks="130" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="10.5" fill="#9e818f">· 130 forks</text>
+    <text x="256" y="34" data-forks="131" font-family="ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace" font-size="10.5" fill="#9e818f">· 131 forks</text>
 
     <g transform="translate(372 40)">
       <g><path d="M0 0V-13Q8 -9 0 0ZM0 0H13Q9 8 0 0ZM0 0V13Q-8 9 0 0ZM0 0H-13Q-9 -8 0 0Z" fill="#ff5e6c" opacity=".82"/><circle r="2.5" fill="#ffc966"/><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="5.5s" repeatCount="indefinite"/></g>
